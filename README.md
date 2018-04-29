@@ -92,7 +92,7 @@ user目前权限分为上述四级，后续还会开通visitor模式，如果是
 
     "no_auth"
 
-目前系统的控制也需要权限认证，否则不能通过
+目前，系统的控制也需要权限认证，否则不能通过
 
     http://localhost:8080/IFarm/user/addSubUser?userId=00000000000&farmId=10000001&authority=onlySee
 
