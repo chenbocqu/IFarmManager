@@ -11,6 +11,7 @@
 1、设备生产，向服务器请求所有的设备类别和类型
     url：http://localhost:8080/IFarm/device/category
 返回 array：
+
     [{
         "deviceCategory": "collectorDevice",
         "deviceCategoryName": "采集设备",
@@ -41,6 +42,7 @@
     }]
 
 2、获得服务器生成的设备的id和校验
+
     http://localhost:8080/IFarm/device/production?batch=1&deviceCategory=controlDevice&deviceType=type1
     {
         "response": "success", //"error"即为失败，不会有devices信息
@@ -86,6 +88,7 @@ user目前权限分为四级，farmer：农场主，vipFarmer：vip农场主，�
 4、集中器添加
     http://localhost:8080/IFarm/device/concentrator/addition
 post参数：
+
     {
     collectorId：long，
     farmId：int,  //通过userId去查找对应的farmId
@@ -101,14 +104,16 @@ post参数：
 5、采集设备添加
 http://localhost:8080/IFarm/device/collectorDevice/addition
 post参数：
-{
-collectorId：long，手动输入
-farmId：int,  //通过userId去查找对应的farmId
-deviceVersion：String，
-deviceType：String ， //从farmCollectorDevice/collectorDeviceTypeList获得，见以前文档
-deviceDistrict：String，//设备分区
-deviceLocation：String,//设备位置
-}
+
+    {
+    collectorId：long，手动输入
+    farmId：int,  //通过userId去查找对应的farmId
+    deviceVersion：String，
+    deviceType：String ， //从farmCollectorDevice/collectorDeviceTypeList获得，见以前文档
+    deviceDistrict：String，//设备分区
+    deviceLocation：String,//设备位置
+    }
+
 返回结果：
 {"response":"success"} 或者
 {"response":"error"}
