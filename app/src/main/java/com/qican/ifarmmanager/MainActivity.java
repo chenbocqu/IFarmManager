@@ -10,6 +10,7 @@ import com.qican.ifarmmanager.ui.farm.FarmListActivity;
 import com.qican.ifarmmanager.ui.login.LoginActivity;
 import com.qican.ifarmmanager.ui.produce.DeviceProduceActivity;
 import com.qican.ifarmmanager.ui.qrcode.ScanActivity;
+import com.qican.ifarmmanager.ui.setting.IFMSettingActivity;
 import com.qican.ifarmmanager.ui.setting.SettingActivity;
 import com.qican.ifarmmanager.ui.users.ChooseUserActivity;
 import com.qican.ifarmmanager.utils.CommonTools;
@@ -20,6 +21,11 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
     CommonTools myTool;
     SwipeRefreshLayout srl;
 
+    @Override
+    protected int getContentView() {
+        return R.layout.activity_main;
+    }
+
     private void initView() {
         myTool = new CommonTools(this);
 
@@ -28,6 +34,7 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
         myTool.setHeightByWindow(findViewById(R.id.ll_control_group1), 1 / 3f);
         myTool.setHeightByWindow(findViewById(R.id.ll_control_group2), 1 / 3f);
         myTool.setHeightByWindow(findViewById(R.id.ll_control_group3), 1 / 3f);
+        myTool.setHeightByWindow(findViewById(R.id.ll_control_group4), 1 / 3f);
     }
 
     private void initEvent() {
@@ -39,6 +46,7 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
         registerClickListener(R.id.ll_choose_user);
         registerClickListener(R.id.ll_farm);
         registerClickListener(R.id.ll_jizhongqing);
+        registerClickListener(R.id.ll_ifm_setting);
     }
 
     private void initData() {
@@ -82,6 +90,10 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
             case R.id.ll_jizhongqing:
                 myTool.startActivity(VerifyDeviceActivity.class);
                 break;
+
+            case R.id.ll_ifm_setting:
+                myTool.startActivity(IFMSettingActivity.class);
+                break;
         }
 
     }
@@ -92,11 +104,6 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
         initData();
         initEvent();
         registerClickListener(R.id.ll_setting);
-    }
-
-    @Override
-    protected int getContentView() {
-        return R.layout.activity_main;
     }
 
     @Override

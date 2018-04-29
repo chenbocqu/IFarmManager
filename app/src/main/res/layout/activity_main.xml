@@ -114,7 +114,14 @@
 
                 <include layout="@layout/control_group3" />
 
+                <include layout="@layout/control_group4" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />
+
             </LinearLayout>
         </ScrollView>
     </android.support.v4.widget.SwipeRefreshLayout>
+
 </LinearLayout>

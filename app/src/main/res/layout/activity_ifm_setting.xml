@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:orientation="vertical">
+
+    <include layout="@layout/titlebar" />
+
+    <LinearLayout style="@style/MenuGroupWrapper">
+
+        <RelativeLayout
+            android:id="@+id/rl_ipaddress"
+            style="@style/MenuWrapper">
+
+            <ImageView
+                android:id="@+id/iv_balance"
+                style="@style/Menu_Icon.Left"
+                android:src="@drawable/ip_address" />
+
+            <ImageView
+                android:id="@+id/iv_balance_arrow"
+                style="@style/ArrowRight" />
+
+            <TextView
+                style="@style/MenuText"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/iv_balance"
+                android:text="配置IP地址" />
+
+        </RelativeLayout>
+
+        <View style="@style/SplitLine.WithMargin" />
+
+        <RelativeLayout
+            android:id="@+id/rl_about"
+            style="@style/MenuWrapper">
+
+            <ImageView
+                android:id="@+id/iv_integral"
+                style="@style/Menu_Icon.Left"
+                android:src="@drawable/about" />
+
+            <ImageView
+                android:id="@+id/iv_integral_arrow"
+                style="@style/ArrowRight" />
+
+            <TextView
+                style="@style/MenuText"
+                android:layout_toRightOf="@id/iv_integral"
+                android:text="关于应用" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
