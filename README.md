@@ -165,6 +165,7 @@ post参数：
     systemNo：String，//系统编号，如1号控制系统
     systemLocation：String,//系统位置
     systemDescription：String
+    }
 
 
 ## 8、水肥药一体化系统添加
@@ -195,7 +196,7 @@ post参数：
 
 ## 9、控制系统终端添加（较复杂）
 
-http://localhost:8080/IFarm/farmControl/terminal/addition
+    http://localhost:8080/IFarm/farmControl/terminal/addition
 
 post参数：
 
