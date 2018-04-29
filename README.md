@@ -134,7 +134,7 @@ post参数：
 
 ## 6、控制设备添加
 
-http://localhost:8080/IFarm/device/controlDevice/addition
+    http://localhost:8080/IFarm/device/controlDevice/addition
 
 post参数：
 
@@ -257,8 +257,7 @@ post参数：
 
 ## 13、农场主用户查询自己的下属人员信息
 
-
-http://localhost:8080/IFarm/user/subUserQuery?userId=00000000000&signature=ifarmb02ba08a9fbf471eabebb6ccf03aff07MDAwMDAwMDAwMDA=
+    http://localhost:8080/IFarm/user/subUserQuery?userId=00000000000&signature=ifarmb02ba08a9fbf471eabebb6ccf03aff07MDAwMDAwMDAwMDA=
 
 返回jsonarray，字段是user的字段
 
@@ -273,6 +272,7 @@ http://localhost:8080/IFarm/user/subUserQuery?userId=00000000000&signature=ifarm
 ## 14、农场主查询自己的下属人员的权限
 
     http://localhost:8080/IFarm/user/subUserAuthorityQuery?userId=00000000000&signature=ifarmb02ba08a9fbf471eabebb6ccf03aff07MDAwMDAwMDAwMDA=
+
 返回:
     [{
     	"authId": "1",
@@ -284,6 +284,7 @@ http://localhost:8080/IFarm/user/subUserQuery?userId=00000000000&signature=ifarm
 ## 15、管理员查询所有用户
 
     http://localhost:8080/IFarm/manager/allUser?managerId=2011&token=ifarm320df0e49af94e52811909665b531e4fMjAxMQ==
+
 返回：
 
     [{
