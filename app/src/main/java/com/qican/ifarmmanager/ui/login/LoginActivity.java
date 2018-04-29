@@ -124,4 +124,5 @@ public class LoginActivity extends TitleBarActivity {
         mPb.setIndeterminate(false);
         myTool.showInfo(err);
     }
+
 }
