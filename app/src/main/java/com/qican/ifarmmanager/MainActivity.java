@@ -48,15 +48,18 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
+
             case R.id.llBack:
                 finish();
                 break;
+
             case R.id.ll_choose_user:
+            case R.id.ll_user_manager:
                 myTool.startActivity(ChooseUserActivity.class);
                 break;
-            case R.id.ll_user_manager:
-                break;
+
             case R.id.ll_produce:
 //                myTool.startActivity(ProduceActivity.class);
 //                myTool.startActivity(CategoryListActivity.class);
@@ -66,7 +69,7 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
                 myTool.startActivity(LoginActivity.class);
                 break;
             case R.id.ll_icon_menu:
-                myTool.startActivity(FROM_HOME_PAGE,ScanActivity.class);
+                myTool.startActivity(FROM_HOME_PAGE, ScanActivity.class);
                 break;
             case R.id.ll_setting:
                 myTool.startActivity(SettingActivity.class);
