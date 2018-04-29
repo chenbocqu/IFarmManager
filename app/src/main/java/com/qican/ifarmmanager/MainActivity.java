@@ -119,6 +119,7 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
     @Override
     protected void onResume() {
         super.onResume();
+
         findViewById(R.id.ll_icon_menu).setVisibility(myTool.isLogin() ? View.VISIBLE : View.GONE);
         findViewById(R.id.ll_menu).setVisibility(myTool.isLogin() ? View.GONE : View.VISIBLE);
 
