@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/layout_title"
+        layout="@layout/titlebar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray">
+
+        <include layout="@layout/view_nodata" />
+
+        <ImageView
+            android:id="@+id/iv_net_error"
+            style="@style/MyImg"
+            android:layout_centerInParent="true"
+            android:src="@drawable/net_error"
+            android:visibility="gone" />
+
+        <com.qican.ifarmmanager.view.refresh.PullToRefreshLayout
+            android:id="@+id/pullToRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.qican.ifarmmanager.view.refresh.PullListView
+                android:id="@+id/pullListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@null"
+                android:dividerHeight="1dp"
+                android:listSelector="@android:color/transparent"
+                android:overScrollMode="never"
+                android:scrollingCache="false" />
+        </com.qican.ifarmmanager.view.refresh.PullToRefreshLayout>
+
+        <com.mingle.widget.LoadingView
+            android:id="@+id/avi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+</LinearLayout>

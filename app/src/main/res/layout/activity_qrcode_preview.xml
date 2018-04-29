@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <include layout="@layout/titlebar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_page"
+            style="@style/MyText.Large"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/text_padding"
+            android:text="-/-"
+            android:textColor="@color/white" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/iv_share"
+            style="@style/Icon.40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:src="@drawable/share" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        style="@style/Wrapper"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_type"
+            style="@style/MenuWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/menuMargin">
+
+            <ImageView
+                android:id="@+id/iv_manage_address"
+                style="@style/Menu_Icon.Left"
+                android:src="@drawable/device" />
+
+            <TextView
+                android:id="@+id/tv_type"
+                style="@style/MenuText"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/iv_manage_address"
+                android:text="设备号" />
+
+            <ImageView
+                android:id="@+id/iv_id_arrow"
+                style="@style/ArrowRight" />
+
+            <TextView
+                android:id="@+id/tv_deviceid"
+                style="@style/MyText"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/iv_id_arrow"
+                android:gravity="right"
+                android:text="暂无信息"
+                android:textColor="@color/main_color_deeper" />
+
+        </RelativeLayout>
+
+        <View style="@style/SplitLine.WithMargin" />
+
+        <RelativeLayout
+            android:id="@+id/rl_batch"
+            style="@style/MenuWrapper">
+
+            <ImageView
+                android:id="@+id/iv_balance"
+                style="@style/Menu_Icon.Left"
+                android:src="@drawable/batch" />
+
+            <ImageView
+                android:id="@+id/iv_balance_arrow"
+                style="@style/ArrowRight" />
+
+            <TextView
+                style="@style/MenuText"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/iv_balance"
+                android:text="验证码" />
+
+            <TextView
+                android:id="@+id/tv_verifycode"
+                style="@style/MyText"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/iv_balance_arrow"
+                android:gravity="right"
+                android:text="暂无信息"
+                android:textColor="@color/yellow" />
+
+        </RelativeLayout>
+
+        <View style="@style/SplitLine.WithMargin" />
+
+        <Button
+            android:id="@+id/btn_print_qrcode"
+            style="@style/RoundBtn"
+            android:layout_margin="@dimen/margin_huge"
+            android:text="打印合格证" />
+    </LinearLayout>
+
+</LinearLayout>

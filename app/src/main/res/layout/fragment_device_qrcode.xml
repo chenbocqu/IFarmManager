@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/padding_qrcode"
+    android:paddingRight="@dimen/padding_qrcode"
+    android:paddingTop="25dp">
+
+    <LinearLayout
+        android:id="@+id/ll_shangbiao"
+        android:layout_width="248dp"
+        android:layout_height="210dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/margin_huge"
+        android:background="@drawable/dialog_bg"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_normal">
+
+        <TextView
+            style="@style/MyText"
+            android:text="产品合格证"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/MyText.Small"
+                        android:text="品名："
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        style="@style/MyText.Small"
+                        android:text="-- --" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/MyText.Small"
+                        android:text="生产日期："
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_time"
+                        style="@style/MyText.Small"
+                        android:text="--年 --月 --日" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/MyText.Small"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="二维码" />
+
+            <ImageView
+                android:id="@+id/iv_qrcode"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/MyText.Small"
+                    android:text="设备号："
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_deviceid"
+                    style="@style/MyText.Small"
+                    android:text="------------" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/MyText.Small"
+                    android:text="验证码："
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_verifycode"
+                    style="@style/MyText.Small"
+                    android:text="------" />
+
+            </LinearLayout>
+
+
+            <TextView
+                style="@style/MyText"
+                android:layout_gravity="right"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="重庆褀璨科技股份有限公司"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

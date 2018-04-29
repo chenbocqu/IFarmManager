@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#8004c3</color>
+    <color name="colorPrimaryDark">#7905b8</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="main_color">@color/colorPrimary</color>
+    <color name="main_color_deeper">@color/colorPrimaryDark</color>
+
+    <color name="white">#ffffff</color>
+
+
+    <color name="text_color">#636363</color>
+
+
+    <color name="line">#e0e0e0</color>
+    <color name="bg_gray">#fafafa</color>
+    <color name="black">#000000</color>
+
+    <!--下拉刷新文字颜色-->
+    <color name="refresh_text_color_gray">#999999</color>
+    <color name="gray">#e7e7e7</color>
+    <color name="text_green">#05ab03</color>
+
+    <color name="yellow">#f78b38</color>
+    <color name="yellow_trans">#66f78b38</color>
+    <color name="gray_light">#f4f4f4</color>
+    <color name="reachcolor_humidity">#FFC73B</color>
+    <color name="unreachcolor_humidity">#ECF0F1</color>
+    <color name="reachcolor_temperature1">#15b400</color>
+    <color name="reachcolor_temperature2">#9503d9</color>
+    <color name="reachcolor_watercontent">#0672de</color>
+    <color name="item_pressed">#f9f9f9</color>
+
+    <color name="black_text">#333333</color>
+    <color name="black_text2">#666666</color>
+    <color name="text_black">#444444</color>
+    <color name="blue">#1DA1F2</color>
+    <color name="black_trans">#66000000</color>
+    <color name="bg_trans">#22000000</color>
+    <color name="bg_trans_deeper">#44000000</color>
+
+    <color name="tv_color_selected">#ffffff</color>
+    <color name="tv_color_unselected">#cfcfcf</color>
+    <!--编辑框颜色-->
+    <color name="edit_pressed">#19c901</color>
+    <color name="edit_selected">@color/edit_pressed</color>
+    <color name="text_light">#999999</color>
+    <color name="text_gray">#8c8c8c</color>
+    <color name="gray_bg">#f3f3f3</color>
+    <color name="trans">#00000000</color>
+    <color name="green">#25ab2e</color>
+    <color name="green_trans">#6625ab2e</color>
+    <color name="green_light">#4aff57</color>
+    <color name="light_green_trans">#e9fdea</color>
+    <color name="blue_trans">#d3eff9</color>
+
+    <color name="custom_header_text">#85B100</color>
+    <color name="custom_selected">#A8D324</color>
+    <color name="custom_background">#F0F8DB</color>
+    <color name="custom_background_today">#FF9105</color>
+    <color name="custom_background_disabled">#F0F8DB</color>
+    <color name="custom_text_selected">#FFFFFFFF</color>
+    <color name="custom_text_inactive">#7f778088</color>
+    <color name="transparent">#00000000</color>
+    <color name="yellow_light">#ffed68</color>
+    <color name="red">#ff1212</color>
+    <color name="green_selected">#21aa2a</color>
+
+
+</resources>

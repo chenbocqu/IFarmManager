@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:orientation="vertical">
+
+    <include layout="@layout/titlebar" />
+
+    <RelativeLayout
+        android:id="@+id/rl_type"
+        style="@style/MenuWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/menuMargin">
+
+        <ImageView
+            android:id="@+id/iv_manage_address"
+            style="@style/Menu_Icon.Left"
+            android:src="@drawable/device" />
+
+        <TextView
+            android:id="@+id/tv_type"
+            style="@style/MenuText"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_manage_address"
+            android:hint="请选择设备类型" />
+
+        <ImageView style="@style/ArrowRight" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_batch"
+        style="@style/MenuWrapper"
+        android:layout_marginTop="@dimen/menuMargin">
+
+        <ImageView
+            android:id="@+id/iv_balance"
+            style="@style/Menu_Icon.Left"
+            android:src="@drawable/batch" />
+
+        <ImageView
+            android:id="@+id/iv_balance_arrow"
+            style="@style/ArrowRight" />
+
+        <TextView
+            style="@style/MenuText"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_balance"
+            android:text="批量添加" />
+
+        <TextView
+            android:id="@+id/tv_batch"
+            style="@style/MyText"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/iv_balance_arrow"
+            android:gravity="right"
+            android:text="5个"
+            android:textColor="@color/yellow"
+            android:textSize="23sp" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_add"
+        style="@style/RoundBtn"
+        android:layout_margin="@dimen/margin_huge"
+        android:text="开始添加" />
+
+</LinearLayout>

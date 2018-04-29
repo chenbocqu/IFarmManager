@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:orientation="vertical">
+    <!-- 顶部titleBar-->
+    <include layout="@layout/titlebar" />
+
+    <LinearLayout style="@style/MenuGroupWrapper">
+
+        <LinearLayout
+            android:id="@+id/rl_farm"
+            style="@style/MenuWrapper"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_name"
+                style="@style/MenuText"
+                android:text="农场名字：" />
+
+            <EditText
+                android:id="@+id/edtFarmName"
+                style="@style/MenuText"
+                android:layout_width="match_parent"
+                android:layout_marginRight="15dp"
+                android:layout_toRightOf="@id/tv_name"
+                android:gravity="center|left"
+                android:hint="请为您农场取个名吧"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="" />
+        </LinearLayout>
+
+        <View style="@style/SplitLine.WithMargin" />
+        <!-- 昵称-->
+        <RelativeLayout
+            android:id="@+id/rlLabel"
+            style="@style/MenuWrapper">
+
+            <ImageView
+                android:id="@+id/iv_label_back"
+                style="@style/ArrowRight" />
+
+            <TextView
+                android:id="@+id/tv_label"
+                style="@style/MenuText"
+                android:text="农场标签：" />
+
+            <LinearLayout
+                style="@style/Wrapper"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/iv_label_back"
+                android:background="@null"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvLabel1"
+                    style="@style/LabelText1" />
+
+                <TextView
+                    android:id="@+id/tvLabel2"
+                    style="@style/LabelText1" />
+
+                <TextView
+                    android:id="@+id/tvLabel3"
+                    style="@style/LabelText1" />
+
+                <TextView
+                    android:id="@+id/tvMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="···"
+                    android:textColor="@color/yellow"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvChoose"
+                    style="@style/MyText.Small"
+                    android:layout_marginLeft="5dp"
+                    android:text="点击选择标签"
+                    android:textColor="@color/yellow" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <View style="@style/SplitLine.WithMargin" />
+
+        <EditText
+            android:id="@+id/edtFarmDesc"
+            style="@style/MyText"
+            android:layout_width="match_parent"
+            android:layout_margin="15dp"
+            android:layout_toRightOf="@id/tv_name"
+            android:gravity="top|left"
+            android:hint="添加相关的描述吧！"
+            android:lines="3"
+            android:padding="10dp"
+            android:text="" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="15dp"
+        android:background="@drawable/roundbtn_bg"
+        android:text="立即添加"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+</LinearLayout>

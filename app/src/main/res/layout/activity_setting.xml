@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:orientation="vertical">
+
+    <include layout="@layout/titlebar" />
+
+    <RelativeLayout
+        android:id="@+id/rl_connect_mac"
+        style="@style/MenuWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/menuMargin">
+
+        <ImageView
+            android:id="@+id/iv_manage_address"
+            style="@style/Menu_Icon.Left"
+            android:src="@drawable/printer" />
+
+        <TextView
+            android:id="@+id/tv_type"
+            style="@style/MenuText"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_manage_address"
+            android:text="连接至指定打印机" />
+
+        <ImageView style="@style/ArrowRight" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_paired"
+        style="@style/MenuWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/menuMargin">
+
+        <ImageView
+            android:id="@+id/iv_paired"
+            style="@style/Menu_Icon.Left"
+            android:src="@drawable/keypairs" />
+
+        <TextView
+            style="@style/MenuText"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_paired"
+            android:text="连接已配对打印机" />
+
+        <ImageView style="@style/ArrowRight" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_searech_connect"
+        style="@style/MenuWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/menuMargin">
+
+        <ImageView
+            android:id="@+id/iv_searech_connect"
+            style="@style/Menu_Icon.Left"
+            android:src="@drawable/search" />
+
+        <TextView
+            style="@style/MenuText"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_searech_connect"
+            android:text="搜索并连接" />
+
+        <ImageView style="@style/ArrowRight" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_disconnect"
+        style="@style/MenuWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/menuMargin">
+
+        <ImageView
+            android:id="@+id/iv_disconnect"
+            style="@style/Menu_Icon.Left"
+            android:src="@drawable/disconnect" />
+
+        <TextView
+            style="@style/MenuText"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_disconnect"
+            android:text="断开连接" />
+
+        <ImageView style="@style/ArrowRight" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_stop_printer_server"
+        style="@style/RoundBtn"
+        android:layout_margin="@dimen/margin_huge"
+        android:text="停止打印机服务" />
+
+</LinearLayout>

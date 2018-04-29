@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/main_color_deeper">//点击时波纹的颜色
+    <item android:drawable="@color/main_color" />//未点击时控件的颜色
+</ripple>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:orientation="vertical">
+    <!-- 顶部titleBar-->
+    <include layout="@layout/titlebar" />
+
+    <LinearLayout style="@style/MenuGroupWrapper">
+
+        <LinearLayout
+            style="@style/MenuWrapper"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edt_id"
+                style="@style/MyText"
+                android:layout_width="match_parent"
+                android:hint="设备号"
+                android:text="" />
+        </LinearLayout>
+
+        <View style="@style/SplitLine.WithMargin" />
+
+        <LinearLayout
+            style="@style/MenuWrapper"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edt_very_code"
+                style="@style/MyText"
+                android:layout_width="match_parent"
+                android:hint="验证码"
+                android:text="" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_verify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="15dp"
+        android:background="@drawable/roundbtn_bg"
+        android:text="验证设备"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+
+</LinearLayout>

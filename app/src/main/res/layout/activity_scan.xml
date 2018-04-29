@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <cn.bingoogolapple.qrcode.zxing.ZXingView
+        android:id="@+id/zxingview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:qrcv_animTime="1000"
+        app:qrcv_borderColor="@android:color/white"
+        app:qrcv_borderSize="1dp"
+        app:qrcv_cornerColor="@color/colorPrimaryDark"
+        app:qrcv_cornerLength="20dp"
+        app:qrcv_cornerSize="3dp"
+        app:qrcv_maskColor="#33FFFFFF"
+        app:qrcv_rectWidth="250dp"
+        app:qrcv_scanLineColor="@color/colorPrimaryDark"
+        app:qrcv_scanLineSize="1dp"
+        app:qrcv_topOffset="150dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            style="@style/Icon"
+            android:layout_marginLeft="20dp"
+            android:padding="5dp"
+            android:src="@drawable/back_1" />
+
+        <ImageView
+            android:id="@+id/iv_flash_light"
+            style="@style/Icon"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:padding="7dp"
+            android:src="@drawable/flash_light" />
+
+        <ImageView
+            android:id="@+id/iv_album"
+            style="@style/Icon"
+            android:layout_toLeftOf="@id/iv_flash_light"
+            android:padding="7dp"
+            android:src="@drawable/album" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:gravity="center">
+
+        <TextView
+            style="@style/MyText"
+            android:text="将二维码放入框内，即可自动扫描"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

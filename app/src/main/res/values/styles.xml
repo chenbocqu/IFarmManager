@@ -1,0 +1,237 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="MyText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:hint">"空"</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="MyText.Large">
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
+    <style name="MyText.Small">
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="MyText.Huge">
+        <item name="android:textSize">@dimen/text_size_huge</item>
+    </style>
+
+    <style name="Menu_Icon">
+        <item name="android:layout_width">28dp</item>
+        <item name="android:layout_height">28dp</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="Icon.40dp">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+    </style>
+
+    <style name="MyText.RightOfPb">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:gravity">center|left</item>
+    </style>
+
+    <style name="MyText.LeftOfPb">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center|right</item>
+    </style>
+
+
+    <style name="MyText.Large.Black">
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="LabelText" parent="MyText.Small">
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:text">标签</item>
+        <item name="android:background">@drawable/label_bg</item>
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="MyImg">
+        <item name="android:layout_width">@dimen/img_size_normal</item>
+        <item name="android:layout_height">@dimen/img_size_normal</item>
+        <item name="android:src">@drawable/img_holder</item>
+    </style>
+
+    <style name="MyImg.Small">
+        <item name="android:layout_width">@dimen/img_size_small</item>
+        <item name="android:layout_height">@dimen/img_size_small</item>
+    </style>
+
+    <style name="MyImg.Large">
+        <item name="android:layout_width">@dimen/img_size_large</item>
+        <item name="android:layout_height">@dimen/img_size_large</item>
+    </style>
+
+    <style name="MyProgressBar" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:progress">35</item>
+    </style>
+
+    <style name="MyPbItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+
+    <style name="Icon_btnItem">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+
+    <style name="Icon">
+        <item name="android:layout_width">@dimen/img_size_normal</item>
+        <item name="android:layout_height">@dimen/img_size_normal</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="Icon.Large">
+        <item name="android:layout_width">@dimen/img_size_large</item>
+        <item name="android:layout_height">@dimen/img_size_large</item>
+    </style>
+
+    <style name="Icon.Small">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+    </style>
+
+    <style name="Menu_Icon.Small">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+    </style>
+
+    <style name="MenuText" parent="MyText">
+        <item name="android:layout_marginLeft">8dp</item>
+    </style>
+
+    <style name="Menu_Icon.Left">
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+
+    <style name="Menu_Icon.Center">
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <style name="Menu_Icon.Right">
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="ArrowRight" parent="Menu_Icon.Right">
+        <item name="android:layout_width">14dp</item>
+        <item name="android:layout_height">14dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:src">@drawable/arrowright</item>
+    </style>
+
+    <style name="SplitLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">@color/gray</item>
+    </style>
+
+    <style name="SplitLine.WithMargin">
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+    </style>
+
+    <style name="Wrapper">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="MySpinner">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <!--<item name="android:shadowColor">@color/light_gray</item>-->
+    </style>
+
+    <style name="TabIndicator">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+
+    <style name="ChooseItem">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/item_unselected</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">7dp</item>
+        <item name="android:paddingBottom">7dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:textColor">@color/text_gray</item>
+    </style>
+
+    <style name="Icon.35dp">
+        <item name="android:layout_width">35dp</item>
+        <item name="android:layout_height">35dp</item>
+    </style>
+
+    <style name="IconSmall">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+    </style>
+
+    <style name="MenuWrapper" parent="Wrapper">
+        <item name="android:background">@drawable/btn_selector</item>
+        <item name="android:padding">@dimen/menuMargin</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="MenuGroupWrapper" parent="Wrapper">
+        <item name="android:layout_marginTop">@dimen/menuMargin</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="RoundBtn" parent="MyText.Large">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:text">按钮</item>
+        <item name="android:background">@drawable/roundbtn_bg</item>
+    </style>
+
+    <style name="popwindow_anim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/pop_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/pop_exit_anim</item>
+    </style>
+
+    <style name="LabelText1" parent="LabelText">
+        <item name="android:background">@drawable/label_bg</item>
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+</resources>

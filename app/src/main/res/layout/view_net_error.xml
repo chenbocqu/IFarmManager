@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_net_error"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="5dp"
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp"
+    android:paddingTop="5dp"
+    android:visibility="gone">
+
+    <ImageView
+        style="@style/MyImg"
+        android:src="@drawable/net_error" />
+
+    <TextView
+        style="@style/MyText"
+        android:layout_marginTop="10dp"
+        android:singleLine="true"
+        android:text="网络链接出现问题" />
+
+    <Button
+        style="@style/MyText.Large"
+        android:background="@drawable/btn_selector"
+        android:text="刷新"
+        android:textColor="@color/main_color" />
+
+</LinearLayout>

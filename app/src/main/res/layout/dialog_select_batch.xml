@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/pop_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/dialog_background"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                style="@style/MyText.Large.Black"
+                android:layout_marginLeft="10dp"
+                android:text="请选择添加批量" />
+
+            <ImageView
+                android:id="@+id/iv_cancel"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/cancel" />
+        </RelativeLayout>
+
+        <View style="@style/SplitLine.WithMargin" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_A"
+                style="@style/MyText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/item_unselected"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="3个"
+                android:textColor="#888" />
+
+            <TextView
+                android:id="@+id/tv_B"
+                style="@style/MyText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/item_unselected"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="5个"
+                android:textColor="#888" />
+
+            <TextView
+                android:id="@+id/tv_C"
+                style="@style/MyText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/item_unselected"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="7个"
+                android:textColor="#888" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_D"
+                style="@style/MyText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/item_unselected"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="9个"
+                android:textColor="#888" />
+
+            <TextView
+                android:id="@+id/tv_E"
+                style="@style/MyText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/item_unselected"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="12个"
+                android:textColor="#888" />
+
+            <TextView
+                android:id="@+id/tv_F"
+                style="@style/MyText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/item_unselected"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="15个"
+                android:textColor="#888" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_sub"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="8dp"
+                android:src="@drawable/desc" />
+
+            <TextView
+                android:id="@+id/tv_price"
+                style="@style/MyText"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="@color/yellow"
+                android:textSize="40sp" />
+
+            <ImageView
+                android:id="@+id/iv_add"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="8dp"
+                android:src="@drawable/increase" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/MyText"
+            android:layout_marginTop="20dp"
+            android:text="（注：一次最多批量添加25个）" />
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/roundbtn_bg"
+            android:text="确定"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>
