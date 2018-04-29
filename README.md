@@ -100,7 +100,6 @@ user目前权限分为上述四级，后续还会开通visitor模式，如果是
 
     {"response":"success"}  success:成功，error：失败，full_subUser:超过3个人 no_auth:没有权限
 
-
 ## 4、集中器添加
 
     http://localhost:8080/IFarm/device/concentrator/addition
@@ -108,11 +107,11 @@ user目前权限分为上述四级，后续还会开通visitor模式，如果是
 post参数：
 
     {
-    collectorId：long，
-    farmId：int,  //通过userId去查找对应的farmId
-    collectorLocation:String,
-    collectorType:String, //环境数据采集集中器  和  终端设备控制集中器
-    collectorVersion:String,
+        collectorId: long，
+        farmId: int, //通过userId去查找对应的farmId
+        collectorLocation: String,
+        collectorType: String, //环境数据采集集中器  和  终端设备控制集中器
+        collectorVersion: String,
     }
 
 返回结果：
@@ -127,12 +126,12 @@ post参数：
 post参数：
 
     {
-    collectorId：long，手动输入
-    farmId：int,  //通过userId去查找对应的farmId
-    deviceVersion：String，
-    deviceType：String ， //从farmCollectorDevice/collectorDeviceTypeList获得，见以前文档
-    deviceDistrict：String，//设备分区
-    deviceLocation：String,//设备位置
+        collectorId: long，手动输入
+        farmId: int,  //通过userId去查找对应的farmId
+        deviceVersion：String，
+        deviceType：String ， //从farmCollectorDevice/collectorDeviceTypeList获得，见以前文档
+        deviceDistrict：String，//设备分区
+        deviceLocation：String,//设备位置
     }
 
 返回结果：
@@ -148,10 +147,10 @@ post参数：
 post参数：
 
     {
-    collectorId：long，手动输入
-    deviceType：String ，
-    deviceDescription：String，//设备描述
-    deviceLocation：String,//设备位置
+        collectorId: long，手动输入
+        deviceType: String ，
+        deviceDescription：String，//设备描述
+        deviceLocation：String,//设备位置
     }
 
 返回结果：
@@ -166,14 +165,14 @@ post参数：
 post参数：
 
     {
-    farmId：int,
-    systemCode:String,
-    systemType:String,
-    systemTypeCode:String, //这三个可以从farmControlSystem/type获取
-    systemDistrict：String ，分区
-    systemNo：String，//系统编号，如1号控制系统
-    systemLocation：String,//系统位置
-    systemDescription：String
+        farmId:int,
+        systemCode:String,
+        systemType:String,
+        systemTypeCode:String, //这三个可以从farmControlSystem/type获取
+        systemDistrict:String ，分区
+        systemNo:String，//系统编号，如1号控制系统
+        systemLocation:String,//系统位置
+        systemDescription:String
     }
 
 
@@ -184,17 +183,17 @@ post参数：
 post参数：
 
     {
-    farmId：int,
-    systemCode:String, //waterFertilizerMedicine
-    systemType:String, //水肥药系统
-    systemTypeCode:String, //waterFertilizerMedicineControl
-    systemDistrict：String ，分区
-    systemNo：String，//系统编号，如1号控制系统
-    medicineNum:int,//药罐个数
-    districtNum：int，//区域数
-    fertierNum：int，//肥罐数
-    systemLocation：String,//系统位置
-    systemDescription：String
+        farmId：int,
+        systemCode:String, //waterFertilizerMedicine
+        systemType:String, //水肥药系统
+        systemTypeCode:String, //waterFertilizerMedicineControl
+        systemDistrict：String ，分区
+        systemNo：String，//系统编号，如1号控制系统
+        medicineNum:int,//药罐个数
+        districtNum：int，//区域数
+        fertierNum：int，//肥罐数
+        systemLocation：String,//系统位置
+        systemDescription：String
     }
 
 返回结果：
@@ -210,13 +209,13 @@ post参数：
 post参数：
 
     {
-    controlDeviceId：int, //控制设备Id
-    systemId:int, //控制系统id
-    controlDeviceBit:int, //这个终端对应设备的第几路输出，从0开始
-    controlType:String, //来源于controlSystem的查询
-    functionName：String ，
-    functionCode：String，//这两个可以从farmControlSystem/terminalType获取
-    terminalIdentifying:String /系统终端标识
+        controlDeviceId：int, //控制设备Id
+        systemId:int, //控制系统id
+        controlDeviceBit:int, //这个终端对应设备的第几路输出，从0开始
+        controlType:String, //来源于controlSystem的查询
+        functionName：String ，
+        functionCode：String，//这两个可以从farmControlSystem/terminalType获取
+        terminalIdentifying:String /系统终端标识
     }
 
 返回结果：
@@ -231,13 +230,13 @@ post参数：
 post参数：
 
     {
-    controlDeviceId：int, //控制设备Id
-    systemId:int, //控制系统id
-    controlDeviceBit:int, //这个终端对应设备的第几路输出，从0开始
-    controlType:String, //来源于controlSystem的查询
-    functionName：String ，
-    functionCode：String，
-    terminalIdentifying:String //这三个可以从farmControlSystem/wfm/terminalType获取
+        controlDeviceId：int, //控制设备Id
+        systemId:int, //控制系统id
+        controlDeviceBit:int, //这个终端对应设备的第几路输出，从0开始
+        controlType:String, //来源于controlSystem的查询
+        functionName：String ，
+        functionCode：String，
+        terminalIdentifying:String //这三个可以从farmControlSystem/wfm/terminalType获取
     }
 
 返回结果：
