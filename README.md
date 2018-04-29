@@ -274,6 +274,7 @@ post参数：
     http://localhost:8080/IFarm/user/subUserAuthorityQuery?userId=00000000000&signature=ifarmb02ba08a9fbf471eabebb6ccf03aff07MDAwMDAwMDAwMDA=
 
 返回:
+
     [{
     	"authId": "1",
     	"userId": "00000000000_101832",
