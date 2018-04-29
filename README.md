@@ -81,9 +81,20 @@
 
 ## 3、用户添加管理人员（需要token验证）
 
-user目前权限分为四级，farmer：农场主，vipFarmer：vip农场主，可以开通三个以后的农场管理人员， onlySee：只能查看农场数据  doControl:可以操作控制，后续还会开通visitor模式
+user目前权限分为四级:
 
-如果是onlySee的用户在系统控制界面，系统会返回"no_auth"，目前系统的控制也需要权限认证，否则不能通过
+|模式|图片|备注
+|---|---|---|
+|farmer|农场主|无|
+|vipFarmer|vip农场主|可以开通三个以后的农场管理人员|
+|onlySee|只能查看农场数据|无|
+|doControl|可以操作控制|无|
+
+后续还会开通visitor模式，如果是onlySee的用户在系统控制界面，系统会返回
+
+    "no_auth"
+
+目前系统的控制也需要权限认证，否则不能通过
 
     http://localhost:8080/IFarm/user/addSubUser?userId=00000000000&farmId=10000001&authority=onlySee
 
