@@ -8,11 +8,13 @@
 
 # 功能
 
-1、设备生产，向服务器请求所有的设备类别和类型
-    url：http://localhost:8080/IFarm/device/category
-返回 array：
+## 1、设备生产，向服务器请求所有的设备类别和类型
 
-    [{
+    url：http://localhost:8080/IFarm/device/category
+
+返回
+
+    array：[{
         "deviceCategory": "collectorDevice",
         "deviceCategoryName": "采集设备",
         "deviceType": [{
@@ -41,7 +43,7 @@
         }]
     }]
 
-2、获得服务器生成的设备的id和校验
+## 2、获得服务器生成的设备的id和校验
 
     http://localhost:8080/IFarm/device/production?batch=1&deviceCategory=controlDevice&deviceType=type1
     {
@@ -74,7 +76,8 @@
 
 
 
-3、用户添加管理人员（需要token验证）
+## 3、用户添加管理人员（需要token验证）
+
 user目前权限分为四级，farmer：农场主，vipFarmer：vip农场主，可以开通三个以后的农场管理人员， onlySee：只能查看农场数据  doControl:可以操作控制，后续还会开通visitor模式
 
 如果是onlySee的用户在系统控制界面，系统会返回"no_auth"，目前系统的控制也需要权限认证，否则不能通过
@@ -82,11 +85,13 @@ user目前权限分为四级，farmer：农场主，vipFarmer：vip农场主，�
     http://localhost:8080/IFarm/user/addSubUser?userId=00000000000&farmId=10000001&authority=onlySee
 
 返回结果
+
     {"response":"success"}  success:成功，error：失败，full_subUser:超过3个人 no_auth:没有权限
 
 
-4、集中器添加
+## 4、集中器添加
     http://localhost:8080/IFarm/device/concentrator/addition
+
 post参数：
 
     {
@@ -98,11 +103,14 @@ post参数：
     }
 
 返回结果：
+
     {"response":"success"} 或者
     {"response":"error"}
 
 5、采集设备添加
+
 http://localhost:8080/IFarm/device/collectorDevice/addition
+
 post参数：
 
     {
@@ -115,99 +123,132 @@ post参数：
     }
 
 返回结果：
-{"response":"success"} 或者
-{"response":"error"}
+
+    {"response":"success"} 或者
+    {"response":"error"}
 
 
 6、控制设备添加
+
 http://localhost:8080/IFarm/device/controlDevice/addition
+
 post参数：
-{
-collectorId：long，手动输入
-deviceType：String ，
-deviceDescription：String，//设备描述
-deviceLocation：String,//设备位置
-}
+
+    {
+    collectorId：long，手动输入
+    deviceType：String ，
+    deviceDescription：String，//设备描述
+    deviceLocation：String,//设备位置
+    }
+
 返回结果：
-{"response":"success"} 或者
-{"response":"error"}
+
+    {"response":"success"} 或者
+    {"response":"error"}
 
 7、控制系统添加
-http://localhost:8080/IFarm/farmControlSystem/addition
+
+    http://localhost:8080/IFarm/farmControlSystem/addition
+
 post参数：
-{
-farmId：int,
-systemCode:String,
-systemType:String,
-systemTypeCode:String, //这三个可以从farmControlSystem/type获取
-systemDistrict：String ，分区
-systemNo：String，//系统编号，如1号控制系统
-systemLocation：String,//系统位置
-systemDescription：String
+
+    {
+    farmId：int,
+    systemCode:String,
+    systemType:String,
+    systemTypeCode:String, //这三个可以从farmControlSystem/type获取
+    systemDistrict：String ，分区
+    systemNo：String，//系统编号，如1号控制系统
+    systemLocation：String,//系统位置
+    systemDescription：String
 
 
 8、水肥药一体化系统添加
-http://localhost:8080/IFarm/farmControlSystem/wfm/addition
+
+    http://localhost:8080/IFarm/farmControlSystem/wfm/addition
+
 post参数：
-{
-farmId：int,
-systemCode:String, //waterFertilizerMedicine
-systemType:String, //水肥药系统
-systemTypeCode:String, //waterFertilizerMedicineControl
-systemDistrict：String ，分区
-systemNo：String，//系统编号，如1号控制系统
-medicineNum:int,//药罐个数
-districtNum：int，//区域数
-fertierNum：int，//肥罐数
-systemLocation：String,//系统位置
-systemDescription：String
-}
+
+    {
+    farmId：int,
+    systemCode:String, //waterFertilizerMedicine
+    systemType:String, //水肥药系统
+    systemTypeCode:String, //waterFertilizerMedicineControl
+    systemDistrict：String ，分区
+    systemNo：String，//系统编号，如1号控制系统
+    medicineNum:int,//药罐个数
+    districtNum：int，//区域数
+    fertierNum：int，//肥罐数
+    systemLocation：String,//系统位置
+    systemDescription：String
+    }
+
 返回结果：
-{"response":"success"} 或者
-{"response":"error"}
+
+    {"response":"success"} 或者
+    {"response":"error"}
+
 
 9、控制系统终端添加（较复杂）
+
 http://localhost:8080/IFarm/farmControl/terminal/addition
+
 post参数：
-{
-controlDeviceId：int, //控制设备Id
-systemId:int, //控制系统id
-controlDeviceBit:int, //这个终端对应设备的第几路输出，从0开始
-controlType:String, //来源于controlSystem的查询
-functionName：String ，
-functionCode：String，//这两个可以从farmControlSystem/terminalType获取
-terminalIdentifying:String /系统终端标识
-}
+
+    {
+    controlDeviceId：int, //控制设备Id
+    systemId:int, //控制系统id
+    controlDeviceBit:int, //这个终端对应设备的第几路输出，从0开始
+    controlType:String, //来源于controlSystem的查询
+    functionName：String ，
+    functionCode：String，//这两个可以从farmControlSystem/terminalType获取
+    terminalIdentifying:String /系统终端标识
+    }
+
 返回结果：
-{"response":"success"} 或者
-{"response":"error"}
+
+    {"response":"success"} 或者
+    {"response":"error"}
 
 10、水肥一体化系统终端添加
-http://localhost:8080/IFarm/farmControl/terminal/addition
+
+    http://localhost:8080/IFarm/farmControl/terminal/addition
+
 post参数：
-{
-controlDeviceId：int, //控制设备Id
-systemId:int, //控制系统id
-controlDeviceBit:int, //这个终端对应设备的第几路输出，从0开始
-controlType:String, //来源于controlSystem的查询
-functionName：String ，
-functionCode：String，
-terminalIdentifying:String //这三个可以从farmControlSystem/wfm/terminalType获取
-}
+
+    {
+    controlDeviceId：int, //控制设备Id
+    systemId:int, //控制系统id
+    controlDeviceBit:int, //这个终端对应设备的第几路输出，从0开始
+    controlType:String, //来源于controlSystem的查询
+    functionName：String ，
+    functionCode：String，
+    terminalIdentifying:String //这三个可以从farmControlSystem/wfm/terminalType获取
+    }
+
 返回结果：
-{"response":"success"} 或者
-{"response":"error"}
+
+    {"response":"success"} 或者
+    {"response":"error"}
 
 
-11、管理人员登陆url:http://localhost:8080/IFarm/manager/login?managerId=2011&managerPwd=123456
+## 11、管理人员登陆
+
+    http://localhost:8080/IFarm/manager/login?managerId=2011&managerPwd=123456
+
 返回
-{"response":"success","token":"...."} 或者
-{"response":"error"}
 
-12、设备和服务器验证
-url:http://localhost:8080/IFarm/device/check?deviceId= & deviceVerification=?
-{"response":"success","device":"...."} 或者
-{"response":"no_id"} 或{"response":"check_error"}
+    {"response":"success","token":"...."} 或者
+    {"response":"error"}
+
+## 12、设备和服务器验证
+
+    http://localhost:8080/IFarm/device/check?deviceId= & deviceVerification=?
+
+返回
+
+    {"response":"success","device":"...."} 或者
+    {"response":"no_id"} 或{"response":"check_error"}
 
 13、农场主用户查询自己的下属人员信息
 url：http://localhost:8080/IFarm/user/subUserQuery?userId=00000000000&signature=ifarmb02ba08a9fbf471eabebb6ccf03aff07MDAwMDAwMDAwMDA=
