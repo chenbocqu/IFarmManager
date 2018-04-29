@@ -9,66 +9,66 @@
 # 功能
 
 1、设备生产，向服务器请求所有的设备类别和类型
-url：http://localhost:8080/IFarm/device/category
+    url：http://localhost:8080/IFarm/device/category
 返回 array：
-[{
-	"deviceCategory": "collectorDevice",
-	"deviceCategoryName": "采集设备",
-	"deviceType": [{
-		"deviceType": "collectorType5",
-		"deviceTypeName": "五合一采集设备"
-	}]
-}, {
-	"deviceCategory": "controlDevice",
-	"deviceCategoryName": "控制设备",
-	"deviceType": [{
-		"deviceType": "type1",
-		"deviceTypeName": "一路输出设备"
-	}, {
-		"deviceType": "type2",
-		"deviceTypeName": "两路输出设备"
-	}, {
-		"deviceType": "type3",
-		"deviceTypeName": "四路输出设备"
-	}]
-}, {
-	"deviceCategory": "concentrator",
-	"deviceCategoryName": "集中器",
-	"deviceType": [{
-		"deviceType": "concentrator",
-		"deviceTypeName": "集中器"
-	}]
-}]
+    [{
+        "deviceCategory": "collectorDevice",
+        "deviceCategoryName": "采集设备",
+        "deviceType": [{
+            "deviceType": "collectorType5",
+            "deviceTypeName": "五合一采集设备"
+        }]
+    }, {
+        "deviceCategory": "controlDevice",
+        "deviceCategoryName": "控制设备",
+        "deviceType": [{
+            "deviceType": "type1",
+            "deviceTypeName": "一路输出设备"
+        }, {
+            "deviceType": "type2",
+            "deviceTypeName": "两路输出设备"
+        }, {
+            "deviceType": "type3",
+            "deviceTypeName": "四路输出设备"
+        }]
+    }, {
+        "deviceCategory": "concentrator",
+        "deviceCategoryName": "集中器",
+        "deviceType": [{
+            "deviceType": "concentrator",
+            "deviceTypeName": "集中器"
+        }]
+    }]
 
 2、获得服务器生成的设备的id和校验
-http://localhost:8080/IFarm/device/production?batch=1&deviceCategory=controlDevice&deviceType=type1
-{
-	"response": "success", //"error"即为失败，不会有devices信息
-	"devices": [{
-		"deviceId": 115174041,  //设备编号
-		"deviceVerification": "ydsopF7NVf",  //验证码
-		"createTime": "2018-01-31 13:47:04.0"  //创建时间
-	}]
-}
+    http://localhost:8080/IFarm/device/production?batch=1&deviceCategory=controlDevice&deviceType=type1
+    {
+        "response": "success", //"error"即为失败，不会有devices信息
+        "devices": [{
+            "deviceId": 115174041,  //设备编号
+            "deviceVerification": "ydsopF7NVf",  //验证码
+            "createTime": "2018-01-31 13:47:04.0"  //创建时间
+        }]
+    }
 
 当batch=3时，批量生产
 
-{
-	"response": "success",
-	"devices": [{
-		"deviceId": 822724144,
-		"deviceVerification": "FlYz9qrnTb",
-		"createTime": "2018-01-31 13:48:49.0"
-	}, {
-		"deviceId": 909811140,
-		"deviceVerification": "YtMhcfZgDx",
-		"createTime": "2018-01-31 13:48:49.0"
-	}, {
-		"deviceId": 151831267,
-		"deviceVerification": "AKR3C7mU32",
-		"createTime": "2018-01-31 13:48:49.0"
-	}]
-}
+    {
+        "response": "success",
+        "devices": [{
+            "deviceId": 822724144,
+            "deviceVerification": "FlYz9qrnTb",
+            "createTime": "2018-01-31 13:48:49.0"
+        }, {
+            "deviceId": 909811140,
+            "deviceVerification": "YtMhcfZgDx",
+            "createTime": "2018-01-31 13:48:49.0"
+        }, {
+            "deviceId": 151831267,
+            "deviceVerification": "AKR3C7mU32",
+            "createTime": "2018-01-31 13:48:49.0"
+        }]
+    }
 
 
 
@@ -77,26 +77,26 @@ user目前权限分为四级，farmer：农场主，vipFarmer：vip农场主，�
 
 如果是onlySee的用户在系统控制界面，系统会返回"no_auth"，目前系统的控制也需要权限认证，否则不能通过
 
-http://localhost:8080/IFarm/user/addSubUser?userId=00000000000&farmId=10000001&authority=onlySee
+    http://localhost:8080/IFarm/user/addSubUser?userId=00000000000&farmId=10000001&authority=onlySee
 
 返回结果
-{"response":"success"}  success:成功，error：失败，full_subUser:超过3个人 no_auth:没有权限
+    {"response":"success"}  success:成功，error：失败，full_subUser:超过3个人 no_auth:没有权限
 
 
 4、集中器添加
-http://localhost:8080/IFarm/device/concentrator/addition
+    http://localhost:8080/IFarm/device/concentrator/addition
 post参数：
-{
-collectorId：long，
-farmId：int,  //通过userId去查找对应的farmId
-collectorLocation:String,
-collectorType:String, //环境数据采集集中器  和  终端设备控制集中器
-collectorVersion:String,
-}
+    {
+    collectorId：long，
+    farmId：int,  //通过userId去查找对应的farmId
+    collectorLocation:String,
+    collectorType:String, //环境数据采集集中器  和  终端设备控制集中器
+    collectorVersion:String,
+    }
 
 返回结果：
-{"response":"success"} 或者
-{"response":"error"}
+    {"response":"success"} 或者
+    {"response":"error"}
 
 5、采集设备添加
 http://localhost:8080/IFarm/device/collectorDevice/addition
