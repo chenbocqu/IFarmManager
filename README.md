@@ -100,7 +100,16 @@ user目前权限分为上述四级，后续还会开通visitor模式，如果是
 
     {"response":"success"}  success:成功，error：失败，full_subUser:超过3个人 no_auth:没有权限
 
-## 4、集中器添加
+## 4、设备和服务器验证
+
+    http://localhost:8080/IFarm/device/check?deviceId= & deviceVerification=?
+
+返回
+
+    {"response":"success","device":"...."} 或者
+    {"response":"no_id"} 或{"response":"check_error"}
+
+## 5、集中器添加
 
     http://localhost:8080/IFarm/device/concentrator/addition
 
@@ -119,7 +128,7 @@ post参数：
     {"response":"success"} 或者
     {"response":"error"}
 
-## 5、采集设备添加
+## 6、采集设备添加
 
     http://localhost:8080/IFarm/device/collectorDevice/addition
 
@@ -140,7 +149,7 @@ post参数：
     {"response":"error"}
 
 
-## 6、控制设备添加
+## 7、控制设备添加
 
     http://localhost:8080/IFarm/device/controlDevice/addition
 
@@ -158,7 +167,7 @@ post参数：
     {"response":"success"} 或者
     {"response":"error"}
 
-## 7、控制系统添加
+## 8、控制系统添加
 
     http://localhost:8080/IFarm/farmControlSystem/addition
 
@@ -176,7 +185,7 @@ post参数：
     }
 
 
-## 8、水肥药一体化系统添加
+## 9、水肥药一体化系统添加
 
     http://localhost:8080/IFarm/farmControlSystem/wfm/addition
 
@@ -202,7 +211,7 @@ post参数：
     {"response":"error"}
 
 
-## 9、控制系统终端添加（较复杂）
+## 10、控制系统终端添加（较复杂）
 
     http://localhost:8080/IFarm/farmControl/terminal/addition
 
@@ -223,7 +232,7 @@ post参数：
     {"response":"success"} 或者
     {"response":"error"}
 
-## 10、水肥一体化系统终端添加
+## 11、水肥一体化系统终端添加
 
     http://localhost:8080/IFarm/farmControl/terminal/addition
 
@@ -245,7 +254,7 @@ post参数：
     {"response":"error"}
 
 
-## 11、管理人员登陆
+## 12、管理人员登陆
 
     http://localhost:8080/IFarm/manager/login?managerId=2011&managerPwd=123456
 
@@ -253,15 +262,6 @@ post参数：
 
     {"response":"success","token":"...."} 或者
     {"response":"error"}
-
-## 12、设备和服务器验证
-
-    http://localhost:8080/IFarm/device/check?deviceId= & deviceVerification=?
-
-返回
-
-    {"response":"success","device":"...."} 或者
-    {"response":"no_id"} 或{"response":"check_error"}
 
 ## 13、农场主用户查询自己的下属人员信息
 

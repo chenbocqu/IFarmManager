@@ -1,6 +1,5 @@
 package com.qican.ifarmmanager.ui.users;
 
-
 import android.view.View;
 import android.widget.ImageView;
 
