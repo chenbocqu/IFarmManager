@@ -24,7 +24,6 @@
 
             <TextView
                 style="@style/MenuText"
-                android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/iv_balance"
                 android:text="配置IP地址" />
 
@@ -47,10 +46,32 @@
 
             <TextView
                 style="@style/MenuText"
-                android:layout_toRightOf="@id/iv_integral"
+                android:layout_toEndOf="@+id/iv_integral"
+                android:layout_toRightOf="@+id/iv_integral"
                 android:text="关于应用" />
 
         </RelativeLayout>
     </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_logout"
+        style="@style/MenuWrapper"
+        android:layout_marginTop="@dimen/menuMargin">
+
+        <ImageView
+            android:id="@+id/iv_exit"
+            style="@style/Menu_Icon.Left"
+            android:src="@drawable/logout" />
+
+        <ImageView
+            android:id="@+id/iv_exit_arrow"
+            style="@style/ArrowRight" />
+
+        <TextView
+            style="@style/MenuText"
+            android:layout_toRightOf="@id/iv_exit"
+            android:text="注销当前账户" />
+
+    </RelativeLayout>
 
 </LinearLayout>

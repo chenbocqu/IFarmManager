@@ -92,7 +92,8 @@ public class LoginActivity extends TitleBarActivity {
                             return;
                         }
 
-                        if (response.contains(":")) {
+                        // 字符串
+                        if (!response.contains("{") && response.contains(":")) {
 
                             String[] rps = response.split(":");
 
@@ -101,7 +102,7 @@ public class LoginActivity extends TitleBarActivity {
                                 return;
                             }
 
-                            switch (rps[0]){
+                            switch (rps[0]) {
 
                                 case "success":
                                     myTool.setToken(rps[1]);
@@ -140,7 +141,7 @@ public class LoginActivity extends TitleBarActivity {
 
                                     break;
                                 case "error":
-                                    loginErr("登录失败，稍后重试！");
+                                    loginErr("账户或密码错误，请注意检查！");
                                     break;
                             }
 

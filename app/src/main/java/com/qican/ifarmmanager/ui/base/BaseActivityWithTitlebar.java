@@ -3,9 +3,11 @@
  */
 package com.qican.ifarmmanager.ui.base;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentActivity;
@@ -137,5 +139,26 @@ public abstract class BaseActivityWithTitlebar extends FragmentActivity implemen
     public void setIconMenu(@DrawableRes int resId, View.OnClickListener iconListener) {
         this.iconResId = resId;
         this.iconListener = iconListener;
+    }
+
+    /**
+     * 延时800ms退出
+     */
+    protected void finishDelay() {
+
+        // 延时退出
+        new CountDownTimer(800, 500) {
+
+            @Override
+            public void onTick(long l) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                finish();
+            }
+        }.start();
+
     }
 }

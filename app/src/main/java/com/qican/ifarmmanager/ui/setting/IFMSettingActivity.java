@@ -22,6 +22,7 @@ public class IFMSettingActivity extends BaseActivityWithTitlebar {
 
         findViewById(R.id.rl_ipaddress).setOnClickListener(this);
         findViewById(R.id.rl_about).setOnClickListener(this);
+        findViewById(R.id.rl_logout).setOnClickListener(this);
     }
 
     @Override
@@ -41,6 +42,22 @@ public class IFMSettingActivity extends BaseActivityWithTitlebar {
             case R.id.rl_about:
                 myTool.showInfo("about");
 //                myTool.startActivity(AboutActivity.class);
+                break;
+
+            case R.id.rl_logout:
+
+                if (!myTool.isLogin()) {
+
+                    myTool.showInfo("当前账户已注销！");
+                    return;
+
+                }
+
+                // 注销
+                myTool.setLoginFlag(false);
+                myTool.showInfo("注销成功！");
+                finishDelay();
+
                 break;
         }
     }

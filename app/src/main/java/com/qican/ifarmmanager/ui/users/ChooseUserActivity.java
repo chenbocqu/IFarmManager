@@ -141,7 +141,7 @@ public class ChooseUserActivity extends ComListActivity<ComUser> {
                     @Override
                     public void onClick(View view) {
                         myTool.setUserInfo(item);
-                        finish();
+                        finishDelay();
                     }
                 });
             }

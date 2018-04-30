@@ -6,6 +6,7 @@ package com.qican.ifarmmanager.ui.base;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
@@ -304,6 +305,27 @@ public abstract class ComListActivity<T> extends FragmentActivity implements Vie
         if (mDialog.isShowing()) return;
 
         super.onBackPressed();
+
+    }
+
+    /**
+     * 延时800ms退出
+     */
+    protected void finishDelay() {
+
+        // 延时退出
+        new CountDownTimer(800, 500) {
+
+            @Override
+            public void onTick(long l) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                finish();
+            }
+        }.start();
 
     }
 }
