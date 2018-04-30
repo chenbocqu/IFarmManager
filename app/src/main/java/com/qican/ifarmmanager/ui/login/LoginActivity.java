@@ -92,37 +92,6 @@ public class LoginActivity extends TitleBarActivity {
                             return;
                         }
 
-                        // 字符串
-                        if (!response.contains("{") && response.contains(":")) {
-
-                            String[] rps = response.split(":");
-
-                            if (rps.length != 2) {
-                                loginErr("登录失败，rps.length != 2");
-                                return;
-                            }
-
-                            switch (rps[0]) {
-
-                                case "success":
-                                    myTool.setToken(rps[1]);
-                                    mPb.setIndeterminate(false);
-                                    myTool.setManagerId(mId);
-                                    myTool.setLoginFlag(true);
-                                    myTool.showInfo("登录成功！");
-
-                                    finish();
-
-                                    break;
-
-                                case "error":
-                                    loginErr("登录失败，稍后重试！");
-                                    break;
-                            }
-
-                            return;
-                        }
-
                         try {
 
                             JSONObject obj = new JSONObject(response);
