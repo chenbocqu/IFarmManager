@@ -83,7 +83,6 @@ public class FarmListActivity extends ComListActivity<Farm> {
                     @Override
                     public void onResponse(String response, int id) {
 
-                        myTool.log("onResponse：" + response);
                         pullToRefreshLayout.refreshFinish(true);
                         showContent();
 

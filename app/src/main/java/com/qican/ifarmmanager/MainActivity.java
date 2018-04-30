@@ -47,6 +47,7 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
         registerClickListener(R.id.ll_farm);
         registerClickListener(R.id.ll_jizhongqing);
         registerClickListener(R.id.ll_ifm_setting);
+        registerClickListener(R.id.ll_add_device);
     }
 
     private void initData() {
@@ -86,8 +87,10 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
                 myTool.startActivity(FarmListActivity.class);
                 break;
 
-            // 添加集中器
+            // 添加集中器，采集设备与控制设备
             case R.id.ll_jizhongqing:
+            case R.id.ll_add_device:
+
                 myTool.startActivity(VerifyDeviceActivity.class);
                 break;
 

@@ -164,8 +164,6 @@ public abstract class ComListActivity<T> extends FragmentActivity implements Vie
 
     private void hideProgress() {
 
-        myTool.log("hideProgress .. ");
-
         pullToRefreshLayout.refreshFinish(true);
 
         if (mDialog != null && mDialog.isShowing())

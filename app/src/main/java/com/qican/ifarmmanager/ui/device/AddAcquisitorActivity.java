@@ -204,6 +204,9 @@ public class AddAcquisitorActivity extends TitleBarActivity {
                                                 }
                                             });
                                     break;
+                                case "no_id":
+                                    showFailed("系统中没有检索到该集中器，请检查后重试！");
+                                    break;
                                 case "error":
                                     showFailed("网络异常请稍后重试！");
                                     break;
@@ -220,15 +223,14 @@ public class AddAcquisitorActivity extends TitleBarActivity {
     private void showFailed(String err) {
         mDialog.setTitleText("添加失败")
                 .setContentText(err)
-                .setConfirmText("重试")
-                .setCancelText("取消")
+                .setConfirmText("好的")
                 .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                     @Override
                     public void onClick(SweetAlertDialog sweetAlertDialog) {
                         mDialog.dismissWithAnimation();
-                        toAdd();
                     }
-                });
+                })
+                .changeAlertType(SweetAlertDialog.ERROR_TYPE);
     }
 
     @Override
