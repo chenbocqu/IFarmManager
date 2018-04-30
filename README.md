@@ -256,7 +256,7 @@ post参数：
 
 ## 12、管理人员登陆
 
-    http://localhost:8080/IFarm/manager/login?managerId=2011&managerPwd=123456
+    http://localhost:8080/IFarm/manager/login?managerId=2011&managerPwd=123
 
 返回
 

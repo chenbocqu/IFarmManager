@@ -115,8 +115,6 @@ public class ChooseUserActivity extends ComListActivity<ComUser> {
                             myTool.showInfo(e.getMessage());
                             showError();
                         }
-
-
                     }
 
                 });
