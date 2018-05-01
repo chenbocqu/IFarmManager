@@ -136,6 +136,7 @@ post参数：
 
     {
         collectorId: long，手动输入
+        deviceId: long，当前已获取的ID
         farmId: int,  //通过userId去查找对应的farmId
         deviceVersion：String，
         deviceType：String ， //从farmCollectorDevice/collectorDeviceTypeList获得，见以前文档

@@ -133,9 +133,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_margin="15dp"
         android:background="@drawable/roundbtn_bg"
-        android:text="添加设备"
+        android:text="添加采集设备"
         android:textColor="@color/white"
         android:textSize="14sp" />
-
 
 </LinearLayout>

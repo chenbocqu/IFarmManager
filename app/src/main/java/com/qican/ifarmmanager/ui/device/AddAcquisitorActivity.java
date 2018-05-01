@@ -56,6 +56,11 @@ public class AddAcquisitorActivity extends TitleBarActivity {
     }
 
     @Override
+    protected int getContentView() {
+        return R.layout.activity_add_acquisitor;
+    }
+
+    @Override
     public void init() {
 
         mDevice = (Device) myTool.getParam(Device.class);
@@ -74,10 +79,6 @@ public class AddAcquisitorActivity extends TitleBarActivity {
         TextUtils.with(this).restrictTextLenth(edtLocation, 20, "最长不超过20字");
     }
 
-    @Override
-    protected int getContentView() {
-        return R.layout.activity_add_acquisitor;
-    }
 
     @Override
     public void onClick(View v) {
@@ -152,6 +153,7 @@ public class AddAcquisitorActivity extends TitleBarActivity {
         String loc = edtLocation.getText().toString();
         district = edtDistrict.getText().toString();
 
+        map.put("deviceId", mDevice.getId());
         map.put("collectorId", collectorId);
         map.put("farmId", mFarm.getId());
 
@@ -163,7 +165,6 @@ public class AddAcquisitorActivity extends TitleBarActivity {
         map.put("deviceType", type);
         map.put("deviceDistrict", district);
         map.put("deviceLocation", loc);
-
 
         mDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
         mDialog.setTitleText("正在添加...");
@@ -201,12 +202,30 @@ public class AddAcquisitorActivity extends TitleBarActivity {
                                                 @Override
                                                 public void onClick(SweetAlertDialog sweetAlertDialog) {
                                                     mDialog.dismissWithAnimation();
+
+                                                    setResult(RESULT_OK); // 添加成功
+
+                                                    // 延迟退出
+                                                    edtLocation.postDelayed(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            finish();
+                                                        }
+                                                    }, 500);
                                                 }
-                                            });
+                                            })
+                                            .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
                                     break;
+
+                                // 无设备或集中器ID
                                 case "no_id":
                                     showFailed("系统中没有检索到该集中器，请检查后重试！");
                                     break;
+
+                                case "exist":
+                                    showFailed("该设备已被添加，请勿重复添加！");
+                                    break;
+
                                 case "error":
                                     showFailed("网络异常请稍后重试！");
                                     break;
