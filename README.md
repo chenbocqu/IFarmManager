@@ -158,6 +158,7 @@ post参数：
 
     {
         collectorId: long，手动输入
+        deviceId: long，当前已获取的ID
         deviceType: String ，
         deviceDescription：String，//设备描述
         deviceLocation：String,//设备位置
