@@ -122,6 +122,12 @@
         <activity
             android:name=".ui.setting.IFMSettingActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.sys.AddControlSysActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.sys.SysTypeListActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name=".myprinter.WorkService" />
 

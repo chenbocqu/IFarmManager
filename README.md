@@ -169,7 +169,7 @@ post参数：
     {"response":"success"} 或者
     {"response":"error"}
 
-## 8、控制系统添加 （ing）
+## 8、控制系统添加 （√）
 
     http://localhost:8080/IFarm/farmControlSystem/addition
 

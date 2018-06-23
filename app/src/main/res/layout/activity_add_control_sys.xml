@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_bg"
+    android:orientation="vertical">
+    <!-- 顶部titleBar-->
+    <include layout="@layout/titlebar" />
+
+    <LinearLayout style="@style/MenuGroupWrapper">
+
+        <LinearLayout
+            style="@style/MenuWrapper"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edt_location"
+                style="@style/MyText"
+                android:layout_width="match_parent"
+                android:hint="系统位置"
+                android:text="" />
+        </LinearLayout>
+
+        <View style="@style/SplitLine.WithMargin" />
+
+        <LinearLayout
+            style="@style/MenuWrapper"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edt_district"
+                style="@style/MyText"
+                android:layout_width="match_parent"
+                android:hint="系统分区"
+                android:text="" />
+        </LinearLayout>
+
+        <View style="@style/SplitLine.WithMargin" />
+
+        <LinearLayout
+            style="@style/MenuWrapper"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edt_no"
+                style="@style/MyText"
+                android:layout_width="match_parent"
+                android:hint="系统编号（手动输入）"
+                android:text="" />
+        </LinearLayout>
+
+        <View style="@style/SplitLine.WithMargin" />
+
+        <LinearLayout
+            style="@style/MenuWrapper"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edt_desc"
+                style="@style/MyText"
+                android:layout_width="match_parent"
+                android:gravity="left"
+                android:hint="系统描述"
+                android:lines="3"
+                android:text="" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout style="@style/MenuGroupWrapper">
+
+        <RelativeLayout
+            android:id="@+id/rl_farm"
+            style="@style/MenuWrapper"
+            android:layout_height="55dp">
+
+            <ImageView
+                android:id="@+id/iv_balance_arrow"
+                style="@style/ArrowRight"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                style="@style/MenuText"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text="关联农场" />
+
+            <TextView
+                android:id="@+id/tv_farm_name"
+                style="@style/MyText"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/iv_balance_arrow"
+                android:gravity="right"
+                android:text="请选择" />
+
+        </RelativeLayout>
+
+        <View style="@style/SplitLine.WithMargin" />
+
+        <RelativeLayout
+            android:id="@+id/rl_type"
+            style="@style/MenuWrapper"
+            android:layout_height="55dp">
+
+            <ImageView
+                android:id="@+id/iv_type_arrow"
+                style="@style/ArrowRight"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                style="@style/MenuText"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text="系统类型" />
+
+            <TextView
+                android:id="@+id/tv_type_name"
+                style="@style/MyText"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/iv_type_arrow"
+                android:gravity="right"
+                android:text="请选择" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="15dp"
+        android:background="@drawable/roundbtn_bg"
+        android:text="添加控制系统"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+</LinearLayout>

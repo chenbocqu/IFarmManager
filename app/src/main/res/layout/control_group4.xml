@@ -6,6 +6,45 @@
     android:orientation="horizontal">
 
     <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/griditem_bg"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:orientation="vertical">
+
+        <ImageView
+            style="@style/Icon.40dp"
+            android:src="@drawable/wfm_sys" />
+
+        <TextView
+            style="@style/MyText"
+            android:layout_marginTop="@dimen/menuMarginTop"
+            android:text="添加水肥系统" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_control_sys"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/griditem_bg"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:orientation="vertical">
+
+        <ImageView
+            style="@style/Icon.40dp"
+            android:src="@drawable/control_sys" />
+
+        <TextView
+            style="@style/MyText"
+            android:layout_marginTop="@dimen/menuMarginTop"
+            android:text="添加控制系统" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/ll_ifm_setting"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -23,27 +62,6 @@
             style="@style/MyText"
             android:layout_marginTop="@dimen/menuMarginTop"
             android:text="设置" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@drawable/griditem_bg"
-        android:gravity="center"
-        android:onClick="onClick"
-        android:orientation="vertical">
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@drawable/griditem_bg"
-        android:gravity="center"
-        android:onClick="onClick"
-        android:orientation="vertical">
-
     </LinearLayout>
 
 </LinearLayout>

@@ -12,6 +12,7 @@ import com.qican.ifarmmanager.ui.produce.DeviceProduceActivity;
 import com.qican.ifarmmanager.ui.qrcode.ScanActivity;
 import com.qican.ifarmmanager.ui.setting.IFMSettingActivity;
 import com.qican.ifarmmanager.ui.setting.SettingActivity;
+import com.qican.ifarmmanager.ui.sys.AddControlSysActivity;
 import com.qican.ifarmmanager.ui.users.ChooseUserActivity;
 import com.qican.ifarmmanager.utils.CommonTools;
 
@@ -48,6 +49,7 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
         registerClickListener(R.id.ll_jizhongqing);
         registerClickListener(R.id.ll_ifm_setting);
         registerClickListener(R.id.ll_add_device);
+        registerClickListener(R.id.ll_control_sys);
     }
 
     private void initData() {
@@ -96,6 +98,10 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
 
             case R.id.ll_ifm_setting:
                 myTool.startActivity(IFMSettingActivity.class);
+                break;
+
+            case R.id.ll_control_sys:
+                myTool.startActivity(AddControlSysActivity.class);
                 break;
         }
 
