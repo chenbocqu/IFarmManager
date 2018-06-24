@@ -128,6 +128,9 @@
         <activity
             android:name=".ui.sys.SysTypeListActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.sys.AddWfmSysActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name=".myprinter.WorkService" />
 

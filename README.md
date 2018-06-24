@@ -187,7 +187,7 @@ post参数：
     }
 
 
-## 9、水肥药一体化系统添加 （ing）
+## 9、水肥药一体化系统添加 （√）
 
     http://localhost:8080/IFarm/farmControlSystem/wfm/addition
 
