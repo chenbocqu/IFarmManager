@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ll_control_group4"
+    android:id="@+id/ll_control_group5"
     android:layout_width="match_parent"
     android:layout_height="120dp"
     android:orientation="horizontal">
 
     <LinearLayout
-        android:id="@+id/ll_wfm_sys"
+        android:id="@+id/ll_wfm_config"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -17,16 +17,16 @@
 
         <ImageView
             style="@style/Icon.40dp"
-            android:src="@drawable/wfm_sys" />
+            android:src="@drawable/wfm_config" />
 
         <TextView
             style="@style/MyText"
             android:layout_marginTop="@dimen/menuMarginTop"
-            android:text="添加水肥系统" />
+            android:text="水肥系统配置" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_control_sys"
+        android:id="@+id/ll_control_config"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -37,15 +37,16 @@
 
         <ImageView
             style="@style/Icon.40dp"
-            android:src="@drawable/control_sys" />
+            android:src="@drawable/control_config" />
 
         <TextView
             style="@style/MyText"
             android:layout_marginTop="@dimen/menuMarginTop"
-            android:text="添加控制系统" />
+            android:text="控制系统配置" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_ifm_setting"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -54,6 +55,14 @@
         android:onClick="onClick"
         android:orientation="vertical">
 
+        <ImageView
+            style="@style/Icon.40dp"
+            android:src="@drawable/setting" />
+
+        <TextView
+            style="@style/MyText"
+            android:layout_marginTop="@dimen/menuMarginTop"
+            android:text="设置" />
     </LinearLayout>
 
 </LinearLayout>

@@ -8,9 +8,11 @@ import com.classic.adapter.BaseAdapterHelper;
 import com.classic.adapter.CommonAdapter;
 import com.qican.ifarmmanager.R;
 import com.qican.ifarmmanager.bean.ComUser;
+import com.qican.ifarmmanager.bean.ControlSys;
 import com.qican.ifarmmanager.bean.Farm;
 import com.qican.ifarmmanager.ui.base.ComListActivity;
 import com.qican.ifarmmanager.ui.login.LoginActivity;
+import com.qican.ifarmmanager.ui.sys.ControlSysListActivity;
 import com.qican.ifarmmanager.view.refresh.PullToRefreshLayout;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -24,12 +26,16 @@ import java.util.List;
 
 import okhttp3.Call;
 
+import static com.qican.ifarmmanager.ui.sys.ControlSysListActivity.KEY_SYS;
+
 public class FarmListActivity extends ComListActivity<Farm> {
 
+    private static final int REQUEST_FOR_SYS = 1;
     List<Farm> mData;
     public static final String KEY_FARM = "KEY_FARM";
+    public static final String SYS_LIST = "SYS_LIST";
 
-    String commond = "";
+    String commond = "", key;
 
     @Override
     public String getUITitle() {
@@ -163,6 +169,22 @@ public class FarmListActivity extends ComListActivity<Farm> {
                             finish();
                         }
 
+                        if (commond.contains("-")) {
+
+                            String infos[] = commond.split("-");
+
+                            if (infos.length != 2) return;
+
+                            key = infos[0];
+                            String syscode = infos[1];
+
+                            // 请求系统列表
+                            if (SYS_LIST.equals(key)) {
+                                myTool.startActivityForResult(syscode, ControlSysListActivity.class, REQUEST_FOR_SYS);
+                            }
+
+                        }
+
                     }
                 });
             }
@@ -182,5 +204,26 @@ public class FarmListActivity extends ComListActivity<Farm> {
                 l.loadMoreFinish(true);
             }
         }, 1500);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case REQUEST_FOR_SYS:
+
+                if (resultCode == RESULT_OK) {
+
+                    ControlSys sys = (ControlSys) data.getSerializableExtra(KEY_SYS);
+
+                    Intent intent = new Intent();
+                    intent.putExtra(KEY_SYS, sys);
+                    setResult(RESULT_OK, intent);
+
+                    finish();
+                }
+                break;
+        }
     }
 }

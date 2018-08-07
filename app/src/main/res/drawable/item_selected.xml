@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/green_selected" />
+    <solid android:color="@color/select_color" />
     <corners android:radius="@dimen/itemChooseRadius" />
     <stroke
         android:width="@dimen/btnStroke"

@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.qican.ifarmmanager.bean.ComUser;
 import com.qican.ifarmmanager.ui.base.TitleBarActivity;
+import com.qican.ifarmmanager.ui.config.ConfigControlSysActivity;
 import com.qican.ifarmmanager.ui.device.VerifyDeviceActivity;
 import com.qican.ifarmmanager.ui.farm.FarmListActivity;
 import com.qican.ifarmmanager.ui.login.LoginActivity;
@@ -37,6 +38,7 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
         myTool.setHeightByWindow(findViewById(R.id.ll_control_group2), 1 / 3f);
         myTool.setHeightByWindow(findViewById(R.id.ll_control_group3), 1 / 3f);
         myTool.setHeightByWindow(findViewById(R.id.ll_control_group4), 1 / 3f);
+        myTool.setHeightByWindow(findViewById(R.id.ll_control_group5), 1 / 3f);
     }
 
     private void initEvent() {
@@ -52,6 +54,9 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
         registerClickListener(R.id.ll_add_device);
         registerClickListener(R.id.ll_control_sys);
         registerClickListener(R.id.ll_wfm_sys);
+
+        registerClickListener(R.id.ll_wfm_config);
+        registerClickListener(R.id.ll_control_config);
     }
 
     private void initData() {
@@ -108,6 +113,13 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
 
             case R.id.ll_wfm_sys:
                 myTool.startActivity(AddWfmSysActivity.class);
+                break;
+
+            case R.id.ll_wfm_config:
+                break;
+
+            case R.id.ll_control_config:
+                myTool.startActivity(ConfigControlSysActivity.class);
                 break;
         }
 

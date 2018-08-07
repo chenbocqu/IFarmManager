@@ -67,5 +67,8 @@
     <color name="red">#ff1212</color>
     <color name="green_selected">#21aa2a</color>
 
+    <color name="select_color">@color/main_color</color>
+    <color name="unselect_color">#f6eafc</color>
+
 
 </resources>

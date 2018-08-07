@@ -116,6 +116,13 @@
 
                 <include layout="@layout/control_group4" />
 
+                <TextView
+                    style="@style/MyText"
+                    android:padding="10dp"
+                    android:text="信息系统配置" />
+
+                <include layout="@layout/control_group5" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="120dp" />

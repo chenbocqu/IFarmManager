@@ -165,13 +165,13 @@ public class Dialog4Num extends PopupWindow implements OnClickListener {
     private void selectPrice(int price) {
 
         if (mPrice < minPrice) {
-            myTool.showInfo("悬赏不低于 " + minPrice + " ！");
+            myTool.showInfo("不低于 " + minPrice + " ！");
             mPrice = minPrice;
             return;
         }
 
         if (mPrice > maxPrice) {
-            myTool.showInfo("悬赏不超过 " + maxPrice + " ！");
+            myTool.showInfo("不超过 " + maxPrice + " ！");
             mPrice = maxPrice;
             return;
         }

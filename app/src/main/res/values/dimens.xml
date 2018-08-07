@@ -61,5 +61,6 @@
     <dimen name="text_size_large">20sp</dimen>
     <dimen name="text_size_small">12sp</dimen>
     <dimen name="padding_qrcode">50dp</dimen>
+    <dimen name="itemMargin">12dp</dimen>
 
 </resources>
