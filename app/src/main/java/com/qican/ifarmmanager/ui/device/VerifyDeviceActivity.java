@@ -124,6 +124,8 @@ public class VerifyDeviceActivity extends TitleBarActivity {
 
                                             mDialog.dismissWithAnimation();
 
+                                            myTool.log("device type : " + mDevice.getType());
+
                                             // 根据不同的设备类型进行添加
                                             switch (mDevice.getType()) {
                                                 case "concentrator":
@@ -131,8 +133,13 @@ public class VerifyDeviceActivity extends TitleBarActivity {
                                                     break;
 
                                                 // 采集设备
+                                                case "collectorDevice":
                                                 case "collectorType5":
                                                     myTool.startActivityForResult(mDevice, AddAcquisitorActivity.class, REQUEST_ADD_INFO);
+                                                    break;
+
+                                                // 控制设备
+                                                case "controlDevice":
                                                     break;
 
                                                 // 控制设备

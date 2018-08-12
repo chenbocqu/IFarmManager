@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.qican.ifarmmanager.R;
+import com.qican.ifarmmanager.bean.DeviceCategory;
 import com.qican.ifarmmanager.bean.DeviceInfo;
 import com.qican.ifarmmanager.bean.ProducePara;
 import com.qican.ifarmmanager.listener.PopwindowListener;
@@ -16,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import okhttp3.Call;
@@ -25,7 +27,7 @@ public class DeviceProduceActivity extends TitleBarActivity implements View.OnCl
 
     public static final int REQUEST_FOR_TYPE = 1;
     public static final String KEY_TYPE = "KEY_TYPE";
-    ProducePara mPara;
+    DeviceCategory mFoo;
     Dialog4Batch dialog4Batch;
     int mBatch = 1;
     SweetAlertDialog mDialog;
@@ -75,12 +77,13 @@ public class DeviceProduceActivity extends TitleBarActivity implements View.OnCl
     }
 
     private void produce() {
-        if (mPara == null) {
+        if (mFoo == null) {
             myTool.showInfo("请选择要生产的设备类型！");
             return;
         }
-        if (mPara.getCategoryCode() == null || mPara.getTypeCode() == null) {
-            myTool.showInfo("参数错误，稍后重试！");
+
+        if (mFoo.getTypeCode() == null || mFoo.getCode() == null) {
+            myTool.showInfo("参数错误，请重新选择！");
             return;
         }
 
@@ -88,13 +91,25 @@ public class DeviceProduceActivity extends TitleBarActivity implements View.OnCl
         mDialog.setTitleText("正在添加中...");
         mDialog.show();
 
-        // 刷新数据
+        myTool.log(mFoo.toString());
+        HashMap<String, String> map = new HashMap<>();
+
+        map.put("deviceName", mFoo.getName());
+        map.put("deviceType", mFoo.getType());
+        map.put("deviceTypeCode", mFoo.getTypeCode());
+        map.put("deviceCode", mFoo.getCode());
+
+        if (!"".equals(mFoo.getDesc()))
+            map.put("deviceDescription", mFoo.getDesc());
+
+        map.put("batch", mBatch + "");
+        map.put("deviceVersion", "V1.0");// 后期升级为可填写控制
+
+        // 生产产品
         OkHttpUtils.post().url(myTool.getServAdd() + "device/production")
                 .addParams("userId", myTool.getManagerId())
                 .addParams("signature", myTool.getToken())
-                .addParams("deviceCategory", mPara.getCategoryCode())
-                .addParams("deviceType", mPara.getTypeCode())
-                .addParams("batch", mBatch + "")
+                .params(map)
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -124,8 +139,8 @@ public class DeviceProduceActivity extends TitleBarActivity implements View.OnCl
 
                                         JSONObject deviceObj = array.getJSONObject(i);
 
-                                        info.setName(mPara.getTypeName());
-                                        info.setType(mPara.getTypeCode());
+                                        info.setName(mFoo.getName());
+                                        info.setType(mFoo.getTypeCode());
                                         info.setId(deviceObj.getString("deviceId"));
                                         info.setVerifyCode(deviceObj.getString("deviceVerification"));
                                         info.setProduceTime(deviceObj.getString("createTime"));
@@ -154,8 +169,6 @@ public class DeviceProduceActivity extends TitleBarActivity implements View.OnCl
                         } catch (JSONException e) {
                             showErrorInfo(e.getMessage());
                         }
-
-
                     }
                 });
 
@@ -184,10 +197,12 @@ public class DeviceProduceActivity extends TitleBarActivity implements View.OnCl
             case REQUEST_FOR_TYPE:
 
                 if (resultCode == RESULT_OK) {
-                    mPara = (ProducePara) data.getSerializableExtra(KEY_TYPE);
+                    mFoo = (DeviceCategory) data.getSerializableExtra(KEY_TYPE);
 
-                    if (mPara != null)
-                        setText(R.id.tv_type, mPara.getCategoryName() + " > " + mPara.getTypeName());
+                    if (mFoo != null) {
+                        String showName = mFoo.getName() + ("".equals(mFoo.getDesc()) ? "" : "（" + mFoo.getDesc() + "）");
+                        setText(R.id.tv_type, mFoo.getName());
+                    }
                 }
 
                 break;

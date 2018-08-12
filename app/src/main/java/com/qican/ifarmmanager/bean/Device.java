@@ -5,7 +5,7 @@ package com.qican.ifarmmanager.bean;
 
 import java.io.Serializable;
 
-public class Device implements Serializable{
+public class Device implements Serializable {
 
     private String id;
     private String name;
@@ -69,5 +69,17 @@ public class Device implements Serializable{
 
     public void setVerifyCode(String verifyCode) {
         this.verifyCode = verifyCode;
+    }
+
+    @Override
+    public String toString() {
+        return "Device{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", status='" + status + '\'' +
+                ", type='" + type + '\'' +
+                ", verifyCode='" + verifyCode + '\'' +
+                '}';
     }
 }

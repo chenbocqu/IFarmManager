@@ -153,6 +153,9 @@ public class AddAcquisitorActivity extends TitleBarActivity {
         String loc = edtLocation.getText().toString();
         district = edtDistrict.getText().toString();
 
+        map.put("managerId", myTool.getManagerId());
+        map.put("token", myTool.getToken());
+
         map.put("deviceId", mDevice.getId());
         map.put("collectorId", collectorId);
         map.put("farmId", mFarm.getId());
@@ -172,8 +175,6 @@ public class AddAcquisitorActivity extends TitleBarActivity {
 
         // 采集设备添加
         OkHttpUtils.post().url(myTool.getServAdd() + "device/collectorDevice/addition")
-                .addParams("managerId", myTool.getManagerId())
-                .addParams("token", myTool.getToken())
                 .params(map)
                 .build()
                 .execute(new StringCallback() {

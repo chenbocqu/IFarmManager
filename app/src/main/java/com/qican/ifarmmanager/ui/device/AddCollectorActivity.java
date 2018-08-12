@@ -120,8 +120,6 @@ public class AddCollectorActivity extends TitleBarActivity {
      */
     private void toAdd() {
 
-        Map<String, String> map = new HashMap<>();
-
         if (mDevice == null) return;
 
         if (mFarm == null) {
@@ -136,24 +134,29 @@ public class AddCollectorActivity extends TitleBarActivity {
 
         String loc = edtLocation.getText().toString();
 
+        myTool.log("managerId : " + myTool.getManagerId());
+        myTool.log("token : " + myTool.getToken());
 
-        map.put("collectorId", mDevice.getId());
-        map.put("farmId", mFarm.getId());
-        map.put("collectorLocation", loc);
-        map.put("collectorType", type);
-
-        if (!TextUtils.isEmpty(edtVersion)) {
-            String version = edtVersion.getText().toString();
-            map.put("collectorVersion", version);
-        }
+        myTool.log("请求参数 ： " + mDevice.toString());
 
         mDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
         mDialog.setTitleText("正在添加...");
         mDialog.show();
 
+        Map<String, String> map = new HashMap<>();
+        map.put("managerId", myTool.getManagerId());
+        map.put("token", myTool.getToken());
+
+        map.put("collectorId", mDevice.getId());
+        map.put("farmId", mFarm.getId());
+        map.put("collectorLocation", loc);
+        map.put("collectorType", type + "集中器");
+        if (!TextUtils.isEmpty(edtVersion)) {
+            String version = edtVersion.getText().toString();
+            map.put("collectorVersion", version);
+        }
+
         OkHttpUtils.post().url(myTool.getServAdd() + "device/concentrator/addition")
-                .addParams("managerId", myTool.getManagerId())
-                .addParams("token", myTool.getToken())
                 .params(map)
                 .build()
                 .execute(new StringCallback() {

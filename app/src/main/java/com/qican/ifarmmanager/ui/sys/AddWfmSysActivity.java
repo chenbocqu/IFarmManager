@@ -127,7 +127,7 @@ public class AddWfmSysActivity extends TitleBarActivity {
 //                myTool.startActivityForResult(SysTypeListActivity.class, REQUEST_FOR_SYS_TYPE);
                 break;
 
-            // 添加集中器
+            // 添加水肥系统
             case R.id.btn_add:
                 toAdd();
                 break;
@@ -196,6 +196,9 @@ public class AddWfmSysActivity extends TitleBarActivity {
         String sysNo = edtSysNo.getText().toString();
         String desc = edtDesc.getText().toString();
 
+        map.put("managerId", myTool.getManagerId());
+        map.put("token", myTool.getToken());
+
         map.put("farmId", mFarm.getId());
 
         map.put("systemCode", "waterFertilizerMedicine");
@@ -217,8 +220,6 @@ public class AddWfmSysActivity extends TitleBarActivity {
 
         // 采集设备添加
         OkHttpUtils.post().url(myTool.getServAdd() + "farmControlSystem/wfm/addition")
-                .addParams("managerId", myTool.getManagerId())
-                .addParams("token", myTool.getToken())
                 .params(map)
                 .build()
                 .execute(new StringCallback() {

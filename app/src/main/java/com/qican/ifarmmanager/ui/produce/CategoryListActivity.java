@@ -8,6 +8,7 @@ import com.classic.adapter.BaseAdapterHelper;
 import com.classic.adapter.CommonAdapter;
 import com.qican.ifarmmanager.R;
 import com.qican.ifarmmanager.bean.Category;
+import com.qican.ifarmmanager.bean.DeviceCategory;
 import com.qican.ifarmmanager.bean.DeviceType;
 import com.qican.ifarmmanager.bean.ProducePara;
 import com.qican.ifarmmanager.ui.base.ComListActivity;
@@ -27,11 +28,9 @@ import okhttp3.Call;
 import static com.qican.ifarmmanager.ui.produce.DeviceProduceActivity.KEY_TYPE;
 import static com.qican.ifarmmanager.ui.produce.DeviceProduceActivity.REQUEST_FOR_TYPE;
 
-public class CategoryListActivity extends ComListActivity<Category> {
+public class CategoryListActivity extends ComListActivity<DeviceCategory> {
 
-    List<Category> mData;
-    ProducePara mPara;
-    String categoryName, categoryCode;
+    List<DeviceCategory> mData;
 
     @Override
     public String getUITitle() {
@@ -66,6 +65,8 @@ public class CategoryListActivity extends ComListActivity<Category> {
                     @Override
                     public void onResponse(String response, int id) {
 
+                        myTool.log("选择类型 response : " + response);
+
                         // 出错的几种情况
                         if (response == null || response.length() == 0 || '[' != response.charAt(0)) {
                             showError();
@@ -82,40 +83,26 @@ public class CategoryListActivity extends ComListActivity<Category> {
 
                             for (int i = 0; i < array.length(); i++) {
                                 // 一个Category
-                                Category category = new Category();
+                                DeviceCategory foo = new DeviceCategory();
 
                                 JSONObject obj = array.getJSONObject(i);
 
-                                if (obj.has("deviceCategory"))
-                                    category.setCategory(obj.getString("deviceCategory"));
-                                if (obj.has("deviceCategoryName"))
-                                    category.setName(obj.getString("deviceCategoryName"));
+                                if (obj.has("deviceType"))
+                                    foo.setType(obj.getString("deviceType"));
+                                if (obj.has("deviceTypeCode"))
+                                    foo.setTypeCode(obj.getString("deviceTypeCode"));
+                                if (obj.has("deviceDescription"))
+                                    foo.setDesc(obj.getString("deviceDescription"));
+                                if (obj.has("deviceCode"))
+                                    foo.setCode(obj.getString("deviceCode"));
+                                if (obj.has("deviceName"))
+                                    foo.setName(obj.getString("deviceName"));
 
-                                // 内层
-                                ArrayList<DeviceType> types = new ArrayList<DeviceType>();
-
-                                if (obj.has("deviceType")) {
-
-                                    JSONArray typeArr = obj.getJSONArray("deviceType");
-
-                                    for (int j = 0; j < typeArr.length(); j++) {
-                                        DeviceType type = new DeviceType();
-                                        JSONObject objType = typeArr.getJSONObject(j);
-                                        if (objType.has("deviceType"))
-                                            type.setType(objType.getString("deviceType"));
-
-                                        if (objType.has("deviceTypeName"))
-                                            type.setName(objType.getString("deviceTypeName"));
-
-                                        types.add(type);
-                                    }
-
-                                }
-                                category.setTypes(types);
-                                mData.add(category);
+                                mData.add(foo);
                             }
                             replaceAll(mData);
                         } catch (JSONException e) {
+                            myTool.log("选择类型 Err : " + e.getMessage());
                             showError();
                         }
                     }
@@ -124,21 +111,24 @@ public class CategoryListActivity extends ComListActivity<Category> {
     }
 
     @Override
-    public CommonAdapter<Category> getAdapter() {
-        return new CommonAdapter<Category>(this, R.layout.item_common_choose, mData) {
+    public CommonAdapter<DeviceCategory> getAdapter() {
+        return new CommonAdapter<DeviceCategory>(this, R.layout.item_common_choose, mData) {
             @Override
-            public void onUpdate(BaseAdapterHelper helper, final Category item, int position) {
-                helper.setText(R.id.tv_name, item.getName());
+            public void onUpdate(BaseAdapterHelper helper, final DeviceCategory item, int position) {
+
+                final String showName = item.getName() + ("".equals(item.getDesc()) ? "" : "（" + item.getDesc() + "）");
+
+                helper.setText(R.id.tv_name, showName);
                 helper.setOnClickListener(R.id.ll_item, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 
-                        // 记录类别
-                        categoryName = item.getName();
-                        categoryCode = item.getCategory();
+                        Intent intent = new Intent();
+                        intent.putExtra(KEY_TYPE, item);
 
-                        // 选择类型
-                        myTool.startActivityForResult(item.getTypes(), TypeListActivity.class, REQUEST_FOR_TYPE);
+                        setResult(RESULT_OK, intent);
+
+                        finish();
                     }
                 });
             }
@@ -159,31 +149,5 @@ public class CategoryListActivity extends ComListActivity<Category> {
                 l.loadMoreFinish(true);
             }
         }, 1000);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        switch (requestCode) {
-            case REQUEST_FOR_TYPE:
-
-                if (resultCode == RESULT_OK) {
-                    mPara = (ProducePara) data.getSerializableExtra(KEY_TYPE);
-                    if (mPara != null) {
-                        mPara.setCategoryName(categoryName);
-                        mPara.setCategoryCode(categoryCode);
-
-                        Intent intent = new Intent();
-                        intent.putExtra(KEY_TYPE, mPara);
-
-                        setResult(RESULT_OK, intent);
-
-                        finish();
-                    }
-                }
-
-                break;
-        }
     }
 }
