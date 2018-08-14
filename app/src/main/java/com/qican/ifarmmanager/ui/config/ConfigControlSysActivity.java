@@ -238,6 +238,11 @@ public class ConfigControlSysActivity extends TitleBarActivity {
                         myTool.log(response);
 
                         if (response == null) return;
+                        if (response.equals("lose efficacy")) {
+                            myTool.showInfo("Token失效，请重新登陆！");
+                            myTool.startActivity(LoginActivity.class);
+                            return;
+                        }
 
                         try {
                             JSONObject obj = new JSONObject(response);

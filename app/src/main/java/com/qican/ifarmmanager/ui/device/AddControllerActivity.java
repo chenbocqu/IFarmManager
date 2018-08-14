@@ -45,8 +45,8 @@ public class AddControllerActivity extends TitleBarActivity {
             "环境数据采集", "终端设备控制"
     };
 
-    String type, district;
-    EditText edtLocation, edtVersion, edtDistrict, edtCollectorId;
+    String type, mark;
+    EditText edtLocation, edtVersion, edtMark, edtCollectorId;
     Device mDevice;
     SweetAlertDialog mDialog;
 
@@ -57,7 +57,7 @@ public class AddControllerActivity extends TitleBarActivity {
 
     @Override
     protected int getContentView() {
-        return R.layout.activity_add_acquisitor;
+        return R.layout.activity_add_controller;
     }
 
     @Override
@@ -67,7 +67,7 @@ public class AddControllerActivity extends TitleBarActivity {
 
         edtLocation = findViewById(R.id.edt_location);
         edtVersion = findViewById(R.id.edt_version);
-        edtDistrict = findViewById(R.id.edt_district);
+        edtMark = findViewById(R.id.edt_mark);
         edtCollectorId = findViewById(R.id.edt_collector_id);
 
         registerClickListener(R.id.rl_farm);
@@ -129,8 +129,8 @@ public class AddControllerActivity extends TitleBarActivity {
             return;
         }
 
-        if (TextUtils.isEmpty(edtDistrict)) {
-            TextUtils.with(this).hintEdt(edtDistrict, "请输入分区！");
+        if (TextUtils.isEmpty(edtMark)) {
+            TextUtils.with(this).hintEdt(edtMark, "请输入备注！");
             return;
         }
 
@@ -144,16 +144,14 @@ public class AddControllerActivity extends TitleBarActivity {
             return;
         }
 
-        if (type == null) {
-            myTool.showInfo("请选择设备类型！");
-            return;
-        }
-
         String collectorId = edtCollectorId.getText().toString();
         String loc = edtLocation.getText().toString();
-        district = edtDistrict.getText().toString();
+        mark = edtMark.getText().toString();
 
-        map.put("deviceId", mDevice.getId());
+        map.put("managerId", myTool.getManagerId());
+        map.put("token", myTool.getToken());
+
+        map.put("controlDeviceId", mDevice.getId());
         map.put("collectorId", collectorId);
         map.put("farmId", mFarm.getId());
 
@@ -162,8 +160,8 @@ public class AddControllerActivity extends TitleBarActivity {
             map.put("deviceVersion", version);
         }
 
-        map.put("deviceType", type);
-        map.put("deviceDistrict", district);
+        map.put("deviceType", mDevice.getDeviceType());
+        map.put("deviceDescription", mark);
         map.put("deviceLocation", loc);
 
         mDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
@@ -171,9 +169,7 @@ public class AddControllerActivity extends TitleBarActivity {
         mDialog.show();
 
         // 采集设备添加
-        OkHttpUtils.post().url(myTool.getServAdd() + "device/collectorDevice/addition")
-                .addParams("managerId", myTool.getManagerId())
-                .addParams("token", myTool.getToken())
+        OkHttpUtils.post().url(myTool.getServAdd() + "device/controlDevice/addition")
                 .params(map)
                 .build()
                 .execute(new StringCallback() {

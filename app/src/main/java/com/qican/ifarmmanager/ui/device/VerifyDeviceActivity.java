@@ -110,7 +110,7 @@ public class VerifyDeviceActivity extends TitleBarActivity {
                         if (response == null) return;
 
                         try {
-                            JSONObject obj = new JSONObject(response);
+                            final JSONObject obj = new JSONObject(response);
 
                             switch (obj.getString("response")) {
                                 case "success":
@@ -140,6 +140,14 @@ public class VerifyDeviceActivity extends TitleBarActivity {
 
                                                 // 控制设备
                                                 case "controlDevice":
+                                                    try {
+                                                        JSONObject device = obj.getJSONObject("device");
+                                                        mDevice.setDeviceType(device.getString("deviceType"));
+                                                    } catch (JSONException e) {
+                                                        myTool.showInfo("验证失败，err ：" + e.getMessage());
+                                                        return;
+                                                    }
+                                                    myTool.startActivityForResult(mDevice, AddControllerActivity.class, REQUEST_ADD_INFO);
                                                     break;
 
                                                 // 控制设备

@@ -12,8 +12,17 @@ public class Device implements Serializable {
     private String imgUrl;
     private String status;
 
-    String type;        // 设备类型
+    String type;       // 设备类型
     String verifyCode; // 验证码
+    String deviceType; // 设备类型
+
+    public String getDeviceType() {
+        return deviceType;
+    }
+
+    public void setDeviceType(String deviceType) {
+        this.deviceType = deviceType;
+    }
 
     public Device() {
     }
