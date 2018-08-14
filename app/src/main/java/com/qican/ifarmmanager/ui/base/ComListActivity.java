@@ -24,11 +24,14 @@ import com.qican.ifarmmanager.utils.CommonTools;
 import com.qican.ifarmmanager.view.refresh.PullListView;
 import com.qican.ifarmmanager.view.refresh.PullToRefreshLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public abstract class ComListActivity<T> extends FragmentActivity implements View.OnClickListener, PullToRefreshLayout.OnRefreshListener {
+
+    protected ArrayList<T> myDatas;
     protected CommonTools myTool;
     CommonAdapter<T> mAdapter;
 
@@ -69,7 +72,7 @@ public abstract class ComListActivity<T> extends FragmentActivity implements Vie
     }
 
     private void initData() {
-
+        myDatas = new ArrayList<>();
         showContent();
 
         init();

@@ -5,16 +5,18 @@ import android.view.View;
 
 import com.qican.ifarmmanager.bean.ComUser;
 import com.qican.ifarmmanager.ui.base.TitleBarActivity;
-import com.qican.ifarmmanager.ui.config.ConfigControlSysActivity;
 import com.qican.ifarmmanager.ui.device.VerifyDeviceActivity;
 import com.qican.ifarmmanager.ui.farm.FarmListActivity;
+import com.qican.ifarmmanager.ui.infosysmanager.AcquisitorListActivity;
+import com.qican.ifarmmanager.ui.infosysmanager.ControlDeviceListActivity;
+import com.qican.ifarmmanager.ui.infosysmanager.ControlSysListActivity;
+import com.qican.ifarmmanager.ui.infosysmanager.WfmSysListActivity;
 import com.qican.ifarmmanager.ui.login.LoginActivity;
 import com.qican.ifarmmanager.ui.produce.DeviceProduceActivity;
 import com.qican.ifarmmanager.ui.qrcode.ScanActivity;
 import com.qican.ifarmmanager.ui.setting.IFMSettingActivity;
 import com.qican.ifarmmanager.ui.setting.SettingActivity;
-import com.qican.ifarmmanager.ui.sys.AddControlSysActivity;
-import com.qican.ifarmmanager.ui.sys.AddWfmSysActivity;
+import com.qican.ifarmmanager.ui.terminal.TerminalListActivity;
 import com.qican.ifarmmanager.ui.users.ChooseUserActivity;
 import com.qican.ifarmmanager.utils.CommonTools;
 
@@ -55,7 +57,7 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
         registerClickListener(R.id.ll_control_sys);
         registerClickListener(R.id.ll_wfm_sys);
 
-        registerClickListener(R.id.ll_wfm_config);
+        registerClickListener(R.id.ll_control_device);
         registerClickListener(R.id.ll_control_config);
     }
 
@@ -98,9 +100,11 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
 
             // 添加集中器，采集设备与控制设备
             case R.id.ll_jizhongqing:
-            case R.id.ll_add_device:
-
                 myTool.startActivity(VerifyDeviceActivity.class);
+                break;
+
+            case R.id.ll_add_device:
+                myTool.startActivity(AcquisitorListActivity.class);
                 break;
 
             case R.id.ll_ifm_setting:
@@ -108,18 +112,19 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
                 break;
 
             case R.id.ll_control_sys:
-                myTool.startActivity(AddControlSysActivity.class);
+                myTool.startActivity(ControlSysListActivity.class);
                 break;
 
             case R.id.ll_wfm_sys:
-                myTool.startActivity(AddWfmSysActivity.class);
-                break;
-
-            case R.id.ll_wfm_config:
+                myTool.startActivity(WfmSysListActivity.class);
                 break;
 
             case R.id.ll_control_config:
-                myTool.startActivity(ConfigControlSysActivity.class);
+                myTool.startActivity(TerminalListActivity.class);
+                break;
+
+            case R.id.ll_control_device:
+                myTool.startActivity(ControlDeviceListActivity.class);
                 break;
         }
 

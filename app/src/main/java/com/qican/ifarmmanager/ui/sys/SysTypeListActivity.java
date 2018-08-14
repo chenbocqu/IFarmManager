@@ -16,6 +16,7 @@ import com.qican.ifarmmanager.view.refresh.PullToRefreshLayout;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -43,12 +44,6 @@ public class SysTypeListActivity extends ComListActivity<SysType> {
         commond = (String) myTool.getParam(String.class);
 
         mData = new ArrayList<>();
-//        setRightMenu("添加农场", new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                myTool.startActivity(AddFarmActivity.class);
-//            }
-//        });
     }
 
     @Override
@@ -95,25 +90,14 @@ public class SysTypeListActivity extends ComListActivity<SysType> {
 
                         try {
 
-                            JSONObject obj = new JSONObject(response);
-                            Iterator<String> iterator = obj.keys();
-
+                            JSONArray arr = new JSONArray(response);
                             mData.clear();
-                            while (iterator.hasNext()) {
-
-                                String systemTypeCode = iterator.next();
-                                String value = obj.getString(systemTypeCode);
-                                String[] valueArray = value.split(":");
-
-                                String systemCode = valueArray[0];
-                                String systemType = valueArray[1];
-
+                            for (int i = 0; i < arr.length(); i++) {
+                                JSONObject o = arr.getJSONObject(i);
                                 SysType type = new SysType();
-
-                                type.setSystemCode(systemCode);
-                                type.setSystemType(systemType);
-                                type.setSystemTypeCode(systemTypeCode);
-
+                                type.setSystemCode(o.getString("systemCode"));
+                                type.setSystemType(o.getString("systemType"));
+                                type.setSystemTypeCode(o.getString("systemTypeCode"));
                                 mData.add(type);
                             }
 

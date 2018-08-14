@@ -169,6 +169,7 @@ public class FarmListActivity extends ComListActivity<Farm> {
                             finish();
                         }
 
+                        if (commond == null) return;
                         if (commond.contains("-")) {
 
                             String infos[] = commond.split("-");

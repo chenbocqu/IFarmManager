@@ -241,7 +241,7 @@ public class AddWfmSysActivity extends TitleBarActivity {
                             JSONObject obj = new JSONObject(response);
                             switch (obj.getString("response")) {
                                 case "success":
-                                    mDialog.setTitleText("添加成功")
+                                    mDialog.setTitleText("系统添加成功")
                                             .setConfirmText("确定")
                                             .showCancelButton(false)
                                             .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
@@ -261,15 +261,6 @@ public class AddWfmSysActivity extends TitleBarActivity {
                                                 }
                                             })
                                             .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
-                                    break;
-
-                                // 无设备或集中器ID
-                                case "no_id":
-                                    showFailed("系统中没有检索到该集中器，请检查后重试！");
-                                    break;
-
-                                case "exist":
-                                    showFailed("该设备已被添加，请勿重复添加！");
                                     break;
 
                                 case "error":

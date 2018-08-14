@@ -137,6 +137,21 @@
         <activity
             android:name=".ui.sys.ControlSysListActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.infosysmanager.ControlDeviceListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.infosysmanager.AcquisitorListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.infosysmanager.WfmSysListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.infosysmanager.ControlSysListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.terminal.TerminalListActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name=".myprinter.WorkService" />
 

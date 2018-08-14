@@ -62,7 +62,7 @@
         <TextView
             style="@style/MyText"
             android:layout_marginTop="@dimen/menuMarginTop"
-            android:text="添加设备" />
+            android:text="采集设备" />
     </LinearLayout>
 
 </LinearLayout>

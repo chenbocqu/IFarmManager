@@ -4,14 +4,34 @@ import java.io.Serializable;
 
 public class DeviceInfo implements Serializable {
 
-    String id;
-    String verifyCode;
+    protected String id;
+    protected String collectorId;
+    protected String verifyCode;
 
-    String name;
+    protected String name;
 
-    String type; // 设备类型编码
+    protected String type; // 设备类型编码
 
-    String produceTime;
+    protected String produceTime;
+    protected String location;
+    protected String creatTime;
+    protected String desc;
+
+    public String getCreatTime() {
+        return creatTime;
+    }
+
+    public void setCreatTime(String creatTime) {
+        this.creatTime = creatTime;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
     public String getId() {
         return id;
@@ -19,6 +39,14 @@ public class DeviceInfo implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getCollectorId() {
+        return collectorId;
+    }
+
+    public void setCollectorId(String collectorId) {
+        this.collectorId = collectorId;
     }
 
     public String getVerifyCode() {

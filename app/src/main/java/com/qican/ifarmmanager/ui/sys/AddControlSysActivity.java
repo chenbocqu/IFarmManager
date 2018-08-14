@@ -140,6 +140,9 @@ public class AddControlSysActivity extends TitleBarActivity {
         String sysNo = edtSysNo.getText().toString();
         String desc = edtDesc.getText().toString();
 
+        map.put("managerId", myTool.getManagerId());
+        map.put("token", myTool.getToken());
+
         map.put("farmId", mFarm.getId());
 
         map.put("systemCode", mSysType.getSystemCode());
@@ -158,8 +161,6 @@ public class AddControlSysActivity extends TitleBarActivity {
 
         // 采集设备添加
         OkHttpUtils.post().url(myTool.getServAdd() + "farmControlSystem/addition")
-                .addParams("managerId", myTool.getManagerId())
-                .addParams("token", myTool.getToken())
                 .params(map)
                 .build()
                 .execute(new StringCallback() {
@@ -201,15 +202,6 @@ public class AddControlSysActivity extends TitleBarActivity {
                                                 }
                                             })
                                             .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
-                                    break;
-
-                                // 无设备或集中器ID
-                                case "no_id":
-                                    showFailed("系统中没有检索到该集中器，请检查后重试！");
-                                    break;
-
-                                case "exist":
-                                    showFailed("该设备已被添加，请勿重复添加！");
                                     break;
 
                                 case "error":
@@ -259,7 +251,7 @@ public class AddControlSysActivity extends TitleBarActivity {
 
                     mSysType = (SysType) data.getSerializableExtra(SysTypeListActivity.KEY_TYPE);
 
-                    setText(R.id.tv_type_name, mSysType.getSystemType());
+                    setText(R.id.tv_type_name, mSysType.getSystemTypeCode());
 
                     type = mSysType.getSystemType();
 

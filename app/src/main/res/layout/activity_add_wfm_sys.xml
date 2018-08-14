@@ -41,7 +41,7 @@
                         android:id="@+id/edt_district"
                         style="@style/MyText"
                         android:layout_width="match_parent"
-                        android:hint="系统分区"
+                        android:hint="系统分区（如A区）"
                         android:text="" />
                 </LinearLayout>
 
@@ -55,7 +55,7 @@
                         android:id="@+id/edt_no"
                         style="@style/MyText"
                         android:layout_width="match_parent"
-                        android:hint="系统编号（手动输入）"
+                        android:hint="系统编号（如1号水肥系统）"
                         android:text="" />
                 </LinearLayout>
 
