@@ -12,10 +12,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.qican.ifarmmanager.R;
+import com.qican.ifarmmanager.bean.Collector;
 import com.qican.ifarmmanager.bean.Device;
 import com.qican.ifarmmanager.bean.DeviceType;
 import com.qican.ifarmmanager.bean.Farm;
 import com.qican.ifarmmanager.ui.base.TitleBarActivity;
+import com.qican.ifarmmanager.ui.collector.CollectorListActivity;
 import com.qican.ifarmmanager.ui.farm.FarmListActivity;
 import com.qican.ifarmmanager.utils.TextUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -34,6 +36,8 @@ public class AddControllerActivity extends TitleBarActivity {
 
     private static final int REQUEST_FOR_FARM = 1;
     private static final int REQUEST_FOR_DEVICE_TYPE = 2;
+    private static final int REQUEST_FOR_COLLECTOR = 3;
+
     Farm mFarm;
     DeviceType mDeviceType;
     int tvItemIds[] = {
@@ -48,6 +52,7 @@ public class AddControllerActivity extends TitleBarActivity {
     String type, mark;
     EditText edtLocation, edtVersion, edtMark, edtCollectorId;
     Device mDevice;
+    Collector mCollector;
     SweetAlertDialog mDialog;
 
     @Override
@@ -75,6 +80,7 @@ public class AddControllerActivity extends TitleBarActivity {
         registerClickListener(R.id.tv_item2);
         registerClickListener(R.id.btn_add);
         registerClickListener(R.id.rl_type);
+        registerClickListener(R.id.rl_collector);
 
         TextUtils.with(this).restrictTextLenth(edtLocation, 20, "最长不超过20字");
     }
@@ -97,6 +103,9 @@ public class AddControllerActivity extends TitleBarActivity {
             // 添加集中器
             case R.id.btn_add:
                 toAdd();
+                break;
+            case R.id.rl_collector:
+                myTool.startActivityForResult(CollectorListActivity.class, REQUEST_FOR_COLLECTOR);
                 break;
 
         }
@@ -134,8 +143,8 @@ public class AddControllerActivity extends TitleBarActivity {
             return;
         }
 
-        if (TextUtils.isEmpty(edtCollectorId)) {
-            TextUtils.with(this).hintEdt(edtCollectorId, "请输入集中器ID！");
+        if (mCollector == null) {
+            myTool.showInfo("请选择集中器ID！");
             return;
         }
 
@@ -144,7 +153,7 @@ public class AddControllerActivity extends TitleBarActivity {
             return;
         }
 
-        String collectorId = edtCollectorId.getText().toString();
+        String collectorId = mCollector.getId();
         String loc = edtLocation.getText().toString();
         mark = edtMark.getText().toString();
 
@@ -273,6 +282,14 @@ public class AddControllerActivity extends TitleBarActivity {
 
                     type = mDeviceType.getCode();
 
+                }
+                break;
+
+            case REQUEST_FOR_COLLECTOR:
+                if (resultCode == RESULT_OK) {
+                    mCollector = (Collector) data.getSerializableExtra(CollectorListActivity.KEY_COLLECTOR);
+
+                    setText(R.id.tv_collector, mCollector.getType() + "（" + mCollector.getId() + "）");
                 }
                 break;
         }

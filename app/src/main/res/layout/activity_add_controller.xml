@@ -21,11 +21,11 @@
                 android:text="" />
         </LinearLayout>
 
-        <View style="@style/SplitLine.WithMargin" />
 
         <LinearLayout
             style="@style/MenuWrapper"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <EditText
                 android:id="@+id/edt_collector_id"
@@ -99,10 +99,9 @@
             android:visibility="gone" />
 
         <RelativeLayout
-            android:id="@+id/rl_type"
+            android:id="@+id/rl_collector"
             style="@style/MenuWrapper"
-            android:layout_height="55dp"
-            android:visibility="gone">
+            android:layout_height="55dp">
 
             <ImageView
                 android:id="@+id/iv_type_arrow"
@@ -113,17 +112,17 @@
                 style="@style/MenuText"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
-                android:text="设备类型" />
+                android:text="集中器ID" />
 
             <TextView
-                android:id="@+id/tv_type_name"
+                android:id="@+id/tv_collector"
                 style="@style/MyText"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@id/iv_type_arrow"
                 android:gravity="right"
-                android:text="请选择" />
+                android:hint="请选择" />
 
         </RelativeLayout>
 

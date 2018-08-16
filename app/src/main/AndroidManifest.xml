@@ -155,6 +155,9 @@
         <activity
             android:name=".ui.device.AddControllerActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.collector.CollectorListActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name=".myprinter.WorkService" />
 
