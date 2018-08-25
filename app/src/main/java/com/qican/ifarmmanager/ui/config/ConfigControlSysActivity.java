@@ -84,7 +84,7 @@ public class ConfigControlSysActivity extends TitleBarActivity {
 
     @Override
     public String getUITitle() {
-        return "控制系统配置";
+        return "控制终端配置";
     }
 
     @Override

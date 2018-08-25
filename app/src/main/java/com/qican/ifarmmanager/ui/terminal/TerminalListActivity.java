@@ -107,7 +107,9 @@ public class TerminalListActivity extends ComListActivity<Terminal> {
                                         t.setControlDeviceId(obj.getString("controlDeviceId"));
                                         t.setIdentify(obj.getString("terminalIdentifying"));
                                         t.setId(obj.getString("terminalId"));
-                                        t.setCreateTime(obj.getString("terminalCreateTime"));
+
+                                        if (obj.has("terminalCreateTime"))
+                                            t.setCreateTime(obj.getString("terminalCreateTime"));
 
                                         myDatas.add(t);
                                     }

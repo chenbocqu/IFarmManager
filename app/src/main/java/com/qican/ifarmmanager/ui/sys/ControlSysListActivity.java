@@ -45,6 +45,11 @@ public class ControlSysListActivity extends ComListActivity<ControlSys> {
         if ("".equals(syscode)) return;
 
         mData = new ArrayList<>();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         request();
     }
 

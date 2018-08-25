@@ -9,8 +9,8 @@ import com.classic.adapter.CommonAdapter;
 import com.qican.ifarmmanager.R;
 import com.qican.ifarmmanager.bean.Collector;
 import com.qican.ifarmmanager.bean.ComUser;
-import com.qican.ifarmmanager.bean.DeviceType;
 import com.qican.ifarmmanager.ui.base.ComListActivity;
+import com.qican.ifarmmanager.ui.device.VerifyDeviceActivity;
 import com.qican.ifarmmanager.ui.login.LoginActivity;
 import com.qican.ifarmmanager.utils.TimeUtils;
 import com.qican.ifarmmanager.view.refresh.PullToRefreshLayout;
@@ -35,7 +35,7 @@ public class CollectorListActivity extends ComListActivity<Collector> {
 
     @Override
     public String getUITitle() {
-        return "选择设备类型";
+        return "集中器列表";
     }
 
     @Override
@@ -44,12 +44,12 @@ public class CollectorListActivity extends ComListActivity<Collector> {
         commond = (String) myTool.getParam(String.class);
 
         mData = new ArrayList<>();
-//        setRightMenu("添加农场", new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                myTool.startActivity(AddFarmActivity.class);
-//            }
-//        });
+        setRightMenu("添加集中器", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myTool.startActivity(VerifyDeviceActivity.class);
+            }
+        });
     }
 
     @Override

@@ -5,7 +5,7 @@ import android.view.View;
 
 import com.qican.ifarmmanager.bean.ComUser;
 import com.qican.ifarmmanager.ui.base.TitleBarActivity;
-import com.qican.ifarmmanager.ui.device.VerifyDeviceActivity;
+import com.qican.ifarmmanager.ui.collector.CollectorListActivity;
 import com.qican.ifarmmanager.ui.farm.FarmListActivity;
 import com.qican.ifarmmanager.ui.infosysmanager.AcquisitorListActivity;
 import com.qican.ifarmmanager.ui.infosysmanager.ControlDeviceListActivity;
@@ -100,7 +100,7 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
 
             // 添加集中器，采集设备与控制设备
             case R.id.ll_jizhongqing:
-                myTool.startActivity(VerifyDeviceActivity.class);
+                myTool.startActivity(CollectorListActivity.class);
                 break;
 
             case R.id.ll_add_device:
