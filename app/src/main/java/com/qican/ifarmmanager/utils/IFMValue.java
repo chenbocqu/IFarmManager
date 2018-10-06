@@ -14,4 +14,5 @@ interface IFMValue {
     String KEY_TOKEN = "KEY_TOKEN";
 
     String KEY_COMUSERINFO = "KEY_COMUSERINFO";
+    String KEY_FARM = "KEY_FARM";
 }

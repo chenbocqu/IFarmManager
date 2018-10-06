@@ -6,26 +6,6 @@
     android:orientation="horizontal">
 
     <LinearLayout
-        android:id="@+id/ll_control_device"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@drawable/griditem_bg"
-        android:gravity="center"
-        android:onClick="onClick"
-        android:orientation="vertical">
-
-        <ImageView
-            style="@style/Icon.40dp"
-            android:src="@drawable/control_device" />
-
-        <TextView
-            style="@style/MyText"
-            android:layout_marginTop="@dimen/menuMarginTop"
-            android:text="控制设备" />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/ll_wfm_sys"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -65,5 +45,24 @@
             android:text="控制系统" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/ll_control_config"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/griditem_bg"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:orientation="vertical">
+
+        <ImageView
+            style="@style/Icon.40dp"
+            android:src="@drawable/wfm_config" />
+
+        <TextView
+            style="@style/MyText"
+            android:layout_marginTop="@dimen/menuMarginTop"
+            android:text="控制终端管理" />
+    </LinearLayout>
 
 </LinearLayout>

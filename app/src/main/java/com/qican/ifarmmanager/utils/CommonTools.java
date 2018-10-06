@@ -29,6 +29,7 @@ import com.bumptech.glide.Glide;
 import com.disk.DiskLruCacheHelper;
 import com.qican.ifarmmanager.R;
 import com.qican.ifarmmanager.bean.ComUser;
+import com.qican.ifarmmanager.bean.Farm;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -388,8 +389,45 @@ public class CommonTools {
      */
     public CommonTools setUserInfo(ComUser userInfo) {
         setUserSelected(true);
+        setFarmNeedChange(true);
         cacheHelper.put(IFMValue.KEY_COMUSERINFO, userInfo);
         return this;
+    }
+
+    private CommonTools setFarmNeedChange(boolean isChanged) {
+        editor.putBoolean("FARM_CHANGED_FLAG", isChanged);
+        editor.commit();
+        return this;
+    }
+
+    public boolean isFarmNeedChange() {
+        return sp.getBoolean("FARM_CHANGED_FLAG", true);
+    }
+
+    /**
+     * 通过用户Id存储用户信息到本地
+     *
+     * @param farm 要保存用户信息
+     * @return 当前实例
+     */
+    public CommonTools setFarm(Farm farm) {
+        cacheHelper.put(IFMValue.KEY_FARM, farm);
+        setFarmNeedChange(false);
+        return this;
+    }
+
+    public Farm getFarm() {
+
+        if (isFarmNeedChange()) {
+            return null;
+        }
+
+        Farm farm = null;
+
+        if (cacheHelper != null)
+            farm = cacheHelper.getAsSerializable(IFMValue.KEY_FARM);
+
+        return farm;
     }
 
     public CommonTools setUserSelected(boolean isSelected) {

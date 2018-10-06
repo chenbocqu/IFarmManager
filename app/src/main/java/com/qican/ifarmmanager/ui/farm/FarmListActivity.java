@@ -160,6 +160,8 @@ public class FarmListActivity extends ComListActivity<Farm> {
                     @Override
                     public void onClick(View view) {
 
+                        myTool.setFarm(item);
+
                         if (KEY_FARM.equals(commond)) {
 
                             Intent intent = new Intent();
@@ -169,7 +171,10 @@ public class FarmListActivity extends ComListActivity<Farm> {
                             finish();
                         }
 
-                        if (commond == null) return;
+                        if (commond == null) {
+                            finishDelay();
+                            return;
+                        }
                         if (commond.contains("-")) {
 
                             String infos[] = commond.split("-");

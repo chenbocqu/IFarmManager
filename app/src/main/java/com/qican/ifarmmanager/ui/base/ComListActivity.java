@@ -303,7 +303,7 @@ public abstract class ComListActivity<T> extends FragmentActivity implements Vie
     @Override
     public void onBackPressed() {
 
-        if (mDialog.isShowing()) return;
+        if (mDialog != null && mDialog.isShowing()) return;
 
         super.onBackPressed();
 

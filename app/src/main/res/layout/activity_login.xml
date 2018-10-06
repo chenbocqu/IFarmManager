@@ -28,6 +28,7 @@
         android:layout_marginLeft="@dimen/margin_huge"
         android:layout_marginRight="@dimen/margin_huge"
         android:hint="密码"
+        android:inputType="textPassword"
         android:maxLines="1" />
 
     <Button

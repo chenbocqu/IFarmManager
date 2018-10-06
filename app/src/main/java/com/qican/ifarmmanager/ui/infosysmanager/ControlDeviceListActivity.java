@@ -58,10 +58,24 @@ public class ControlDeviceListActivity extends ComListActivity<DeviceInfo> {
             return;
         }
 
+        if (myTool.getFarm() == null) {
+            myTool.showInfo("请先选择一个要管理的农场！");
+            showNoData();
+            return;
+        }
+
+        String farmId = "NULL";
+
+        if (myTool.getFarm().getId() != null)
+            farmId = myTool.getFarm().getId();
+
+        myTool.log("farmId: " + farmId);
+
         Map<String, String> map = new HashMap<>();
         map.put("managerId", myTool.getManagerId());
         map.put("token", myTool.getToken());
         map.put("userId", user.getId());
+        map.put("farmId", farmId);
 
         showProgress();
         // 采集设备添加

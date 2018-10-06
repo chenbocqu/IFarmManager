@@ -11,6 +11,14 @@
         android:layout_height="50dp"
         android:background="@color/main_color">
 
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
         <LinearLayout
             android:id="@+id/ll_choose_user"
             android:layout_width="wrap_content"
@@ -28,8 +36,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="请选择要管理的用户"
+                android:text="请选择用户"
                 android:textColor="@color/white" />
+
 
             <ImageView
                 style="@style/Menu_Icon"
@@ -96,30 +105,32 @@
                 <TextView
                     style="@style/MyText"
                     android:padding="10dp"
-                    android:text="用户信息管理" />
+                    android:text="信息管理" />
 
                 <include layout="@layout/control_group1" />
 
                 <TextView
                     style="@style/MyText"
                     android:padding="10dp"
-                    android:text="生产信息管理" />
+                    android:text="生产信息管理"
+                    android:visibility="gone" />
 
                 <include layout="@layout/control_group2" />
 
                 <TextView
                     style="@style/MyText"
                     android:padding="10dp"
-                    android:text="信息系统管理" />
+                    android:text="设备管理" />
 
                 <include layout="@layout/control_group3" />
-
-                <include layout="@layout/control_group4" />
 
                 <TextView
                     style="@style/MyText"
                     android:padding="10dp"
-                    android:text="信息系统配置" />
+                    android:text="系统管理" />
+
+                <include layout="@layout/control_group4" />
+
 
                 <include layout="@layout/control_group5" />
 

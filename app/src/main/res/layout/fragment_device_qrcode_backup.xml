@@ -10,13 +10,13 @@
     <LinearLayout
         android:id="@+id/ll_shangbiao"
         android:layout_width="248dp"
-        android:layout_height="180dp"
+        android:layout_height="210dp"
         android:layout_centerInParent="true"
         android:layout_margin="@dimen/margin_huge"
         android:background="@drawable/dialog_bg"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="@dimen/margin_small">
+        android:padding="@dimen/margin_normal">
 
         <TextView
             style="@style/MyText"
@@ -32,7 +32,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="@dimen/margin_normal"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -135,6 +135,7 @@
             <TextView
                 style="@style/MyText"
                 android:layout_gravity="right"
+                android:layout_marginTop="@dimen/margin_small"
                 android:text="重庆褀璨科技股份有限公司"
                 android:textSize="10sp" />
 

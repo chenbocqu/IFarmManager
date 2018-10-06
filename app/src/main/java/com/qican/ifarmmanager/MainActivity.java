@@ -4,6 +4,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 
 import com.qican.ifarmmanager.bean.ComUser;
+import com.qican.ifarmmanager.bean.Farm;
 import com.qican.ifarmmanager.ui.base.TitleBarActivity;
 import com.qican.ifarmmanager.ui.collector.CollectorListActivity;
 import com.qican.ifarmmanager.ui.farm.FarmListActivity;
@@ -75,9 +76,14 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
                 finish();
                 break;
 
+            // 信息管理
             case R.id.ll_choose_user:
             case R.id.ll_user_manager:
                 myTool.startActivity(ChooseUserActivity.class);
+                break;
+
+            case R.id.ll_farm:
+                myTool.startActivity(FarmListActivity.class);
                 break;
 
             case R.id.ll_produce:
@@ -94,17 +100,19 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
             case R.id.ll_setting:
                 myTool.startActivity(SettingActivity.class);
                 break;
-            case R.id.ll_farm:
-                myTool.startActivity(FarmListActivity.class);
-                break;
+
 
             // 添加集中器，采集设备与控制设备
             case R.id.ll_jizhongqing:
                 myTool.startActivity(CollectorListActivity.class);
                 break;
 
+            // 采集设备
             case R.id.ll_add_device:
                 myTool.startActivity(AcquisitorListActivity.class);
+                break;
+            case R.id.ll_control_device:
+                myTool.startActivity(ControlDeviceListActivity.class);
                 break;
 
             case R.id.ll_ifm_setting:
@@ -123,9 +131,6 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
                 myTool.startActivity(TerminalListActivity.class);
                 break;
 
-            case R.id.ll_control_device:
-                myTool.startActivity(ControlDeviceListActivity.class);
-                break;
         }
 
     }
@@ -160,5 +165,8 @@ public class MainActivity extends TitleBarActivity implements View.OnClickListen
         if (user != null) {
             setText(R.id.tv_userid, user.getNickName() + "(" + user.getId() + ")");
         }
+
+        Farm farm = myTool.getFarm();
+        setText(R.id.tv_title, farm != null ? farm.getName() : "请选择农场");
     }
 }

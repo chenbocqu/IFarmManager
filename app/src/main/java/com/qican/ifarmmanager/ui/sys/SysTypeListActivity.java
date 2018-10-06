@@ -122,8 +122,8 @@ public class SysTypeListActivity extends ComListActivity<SysType> {
             public void onUpdate(BaseAdapterHelper helper, final SysType item, int position) {
 
                 helper
-                        .setText(R.id.tv_name, item.getSystemType())
-                        .setText(R.id.tv_code, item.getSystemTypeCode());
+                        .setText(R.id.tv_name, item.getSystemTypeCode())
+                        .setText(R.id.tv_code, item.getSystemType());
 
                 helper.setOnClickListener(R.id.rl_item, new View.OnClickListener() {
                     @Override

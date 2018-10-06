@@ -1,6 +1,8 @@
 package com.qican.ifarmmanager.beanfromservice;
 
-public class Farm {
+import java.io.Serializable;
+
+public class Farm implements Serializable{
     private Integer farmId;
     private String userId;
     private String farmName;

@@ -3,6 +3,7 @@
     android:id="@+id/ll_control_group2"
     android:layout_width="match_parent"
     android:layout_height="120dp"
+    android:visibility="gone"
     android:orientation="horizontal">
 
     <LinearLayout

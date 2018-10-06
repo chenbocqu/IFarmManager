@@ -12,11 +12,20 @@ public class Terminal implements Serializable {
     int controlDeviceBit;
     String sysId;
     String controlType;
+    String controlName;
     String funcCode;
     String funcName;
     String controlDeviceId;
     String identify; // 系统终端标识
     String createTime;
+
+    public String getControlName() {
+        return controlName;
+    }
+
+    public void setControlName(String controlName) {
+        this.controlName = controlName;
+    }
 
     public String getId() {
         return id;

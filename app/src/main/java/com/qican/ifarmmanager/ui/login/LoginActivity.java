@@ -71,9 +71,11 @@ public class LoginActivity extends TitleBarActivity {
 
         mPb.setIndeterminate(true);
 
+        myTool.log("Login url: " + myTool.getServAdd() + "manager/login");
         OkHttpUtils.post().url(myTool.getServAdd() + "manager/login")
                 .addParams("managerId", mId)
                 .addParams("managerPwd", pwd)
+                .addParams("roler", "configuration")
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -111,6 +113,9 @@ public class LoginActivity extends TitleBarActivity {
                                     break;
                                 case "error":
                                     loginErr("账户或密码错误，请注意检查！");
+                                    break;
+                                case "auth_error":
+                                    loginErr("账号权限有误，请注意检查！");
                                     break;
                             }
 

@@ -14,6 +14,7 @@ import com.qican.ifarmmanager.bean.Farm;
 import com.qican.ifarmmanager.bean.SysType;
 import com.qican.ifarmmanager.ui.base.TitleBarActivity;
 import com.qican.ifarmmanager.ui.farm.FarmListActivity;
+import com.qican.ifarmmanager.ui.login.LoginActivity;
 import com.qican.ifarmmanager.utils.TextUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -61,6 +62,9 @@ public class AddControlSysActivity extends TitleBarActivity {
         registerClickListener(R.id.rl_type);
 
         TextUtils.with(this).restrictTextLenth(edtLocation, 20, "最长不超过20字");
+
+        mFarm = myTool.getFarm();
+        setText(R.id.tv_farm_name, mFarm.getName());
     }
 
 
@@ -177,6 +181,12 @@ public class AddControlSysActivity extends TitleBarActivity {
                         myTool.log(response);
 
                         if (response == null) return;
+
+                        if (response.equals("lose efficacy")) {
+                            myTool.showInfo("Token失效，请重新登陆！");
+                            myTool.startActivity(LoginActivity.class);
+                            return;
+                        }
 
                         try {
                             JSONObject obj = new JSONObject(response);

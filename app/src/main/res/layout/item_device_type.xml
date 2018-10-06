@@ -35,26 +35,19 @@
 
                     <TextView
                         android:id="@+id/tv_name"
+                        style="@style/MyText.Large.Black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
-                        android:singleLine="true"
-                        android:text="五合一设备"
-                        android:textColor="#444"
-                        android:textSize="14sp" />
+                        android:text="五合一设备" />
                 </RelativeLayout>
 
                 <TextView
                     android:id="@+id/tv_code"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/MyText"
                     android:layout_marginTop="5dp"
                     android:ellipsize="end"
-                    android:maxLines="2"
-                    android:paddingRight="30dp"
-                    android:text="collectorType5"
-                    android:textColor="#888"
-                    android:textSize="12sp" />
+                    android:text="collectorType5" />
             </LinearLayout>
 
         </LinearLayout>

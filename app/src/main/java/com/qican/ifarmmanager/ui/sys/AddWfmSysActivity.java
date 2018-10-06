@@ -40,7 +40,7 @@ public class AddWfmSysActivity extends TitleBarActivity {
 
     @Override
     public String getUITitle() {
-        return "添加水肥系统";
+        return "添加水肥药系统";
     }
 
     @Override
@@ -70,6 +70,10 @@ public class AddWfmSysActivity extends TitleBarActivity {
         setText(R.id.tv_feiguan_num, feiNum + " 个");
         setText(R.id.tv_yao_num, yaoNum + " 个");
         setText(R.id.tv_area_num, areaNum + " 个");
+
+        // 显示农场
+        mFarm = myTool.getFarm();
+        setText(R.id.tv_farm_name, mFarm.getName());
 
         dialog4FeiNum = new Dialog4Num(this, feiNum);
         dialog4YaoNum = new Dialog4Num(this, yaoNum);
